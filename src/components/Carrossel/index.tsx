@@ -1,10 +1,8 @@
 import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 
-import slide1 from '../../assets/imagens/slide-barril-vinho.jpg'
-import slide2 from '../../assets/imagens/slide2-barril-vinho-branco.jpg'
-import slide3 from '../../assets/imagens/vinhos_arya_rodrigo_azevedo_zona_sul (1).jpg'
+import slide1 from '../../assets/imagens/Carousel_1.png'
+import slide2 from '../../assets/imagens/Carousel_2.png'
+import slide3 from '../../assets/imagens/Carousel_3.png'
 
 import { Slide, BotaoSlide } from './style'
 
@@ -12,32 +10,30 @@ const Carrossel = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 100,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    fade: true
   }
 
   return (
     <Slider {...settings}>
       <Slide>
-        <img src={slide1} alt="Slide 1 de Vinhos mais vendidos" />
+        <img src={slide1} alt="" />
         <div>
-          <h2>Destaques e mais vendidos</h2>
-          <BotaoSlide href="">Destaques</BotaoSlide>
+          <h2>Vinhos</h2>
         </div>
       </Slide>
       <Slide>
-        <img src={slide2} alt="Slide 2 de Vinhos populares" />
+        <img src={slide2} alt="" />
         <div>
-          <h2>Conheça as vinicolas do Brasil</h2>
-          <BotaoSlide href="">Vinicolas</BotaoSlide>
+          <h2>Vinhos</h2>
         </div>
       </Slide>
       <Slide>
-        <img src={slide3} alt="Slide 3 de Variedade de vinhos" />
+        <img src={slide3} alt="" />
         <div>
-          <h2>Vinhos em lata e organicos</h2>
-          <BotaoSlide href="">Bebidas</BotaoSlide>
+          <h2>Vinhos</h2>
         </div>
       </Slide>
     </Slider>
