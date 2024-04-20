@@ -6,5 +6,9 @@ export const LinksVinhos = styled.ul`
   li {
     padding: 8px;
     list-style: none;
+
+    a {
+      color: #dc143c;
+    }
   }
 `

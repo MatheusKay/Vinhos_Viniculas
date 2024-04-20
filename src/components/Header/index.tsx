@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import vetorLogo from '../../assets/imagens/Logo_Five_leaf_clover.png'
-import vetorCesta from '../../assets/imagens/cesta.png'
+import vetorCesta from '../../assets/imagens/Vector_Cart.png'
 import vetorDropdown from '../../assets/imagens/arrow-down-circle.svg'
 
 import {
@@ -12,12 +12,12 @@ import {
   ContainerPesquisaInput,
   ContainerCarrinho,
   Links,
-  LinkDown
+  LinkDown,
+  LinkR
 } from './style'
 
 import BarraPesquisa from '../BarraPesquisa'
 import BarraLinks from '../BarraLinks'
-import { Link } from 'react-router-dom'
 
 const Header = () => {
   const [barraVisivel, setBarraVisivel] = useState(false)
@@ -60,9 +60,10 @@ const Header = () => {
   return (
     <HeaderContainer>
       <div className="container">
-        <div>
-          <Logo src={vetorLogo} alt="Logo Five leaf clover" />
-        </div>
+        <Logo>
+          <img src={vetorLogo} alt="Logo Five leaf clover" />
+          <h1>Five Leaf Clover</h1>
+        </Logo>
         <ContainerInfos>
           <ContainerPesquisa>
             <ContainerPesquisaInput>
@@ -80,14 +81,14 @@ const Header = () => {
               )}
             </ContainerPesquisaInput>
             <ContainerCarrinho>
-              <img src={vetorCesta} alt="Meu carrinho" />
               <a href="">Meu carrinho</a>
+              <img src={vetorCesta} alt="Meu carrinho" />
             </ContainerCarrinho>
           </ContainerPesquisa>
           <div>
             <Links>
               <LinkDown>
-                <Link to="/produtos">Produtos</Link>
+                <LinkR to="/produtos">Produtos</LinkR>
                 <button onClick={handleAbriuFechouVinhos} onBlur={handleBlur}>
                   <img src={vetorDropdown} alt="Dropdown dos vinhos" />
                 </button>
@@ -98,10 +99,10 @@ const Header = () => {
                 )}
               </LinkDown>
               <li>
-                <Link to="/vinicolas">Vinicolas</Link>
+                <LinkR to="/vinicolas">Vinicolas</LinkR>
               </li>
               <LinkDown>
-                <Link to="/produtos">Bebidas</Link>
+                <LinkR to="/produtos">Bebidas</LinkR>
                 <button onClick={handleAbriuFechouBebidas} onBlur={handleBlur}>
                   <img src={vetorDropdown} alt="Dropdown das bebidas" />
                 </button>
@@ -112,7 +113,7 @@ const Header = () => {
                 )}
               </LinkDown>
               <li>
-                <a href="">Fale conosco</a>
+                <LinkR to="/">Fale conosco</LinkR>
               </li>
             </Links>
           </div>

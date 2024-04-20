@@ -1,10 +1,20 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+
+import backHeader from '../../assets/imagens/background_header.png'
 
 export const HeaderContainer = styled.header`
-  background-color: #e7e7e7;
+  padding: 24px;
+  background-color: #dc143c;
+  color: #fff;
+  background-image: url(${backHeader});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
 
   > div {
     display: flex;
+    column-gap: 96px;
   }
 
   a {
@@ -12,8 +22,20 @@ export const HeaderContainer = styled.header`
   }
 `
 
-export const Logo = styled.img`
-  height: 200px;
+export const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 24px;
+
+  img {
+    width: 96px;
+  }
+
+  h1 {
+    width: 50px;
+    font-size: 24px;
+    color: #fff;
+  }
 `
 
 export const ContainerInfos = styled.div`
@@ -21,22 +43,24 @@ export const ContainerInfos = styled.div`
   padding: 0 16px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  row-gap: 36px;
 `
 
 export const ContainerPesquisa = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `
 
 export const ContainerPesquisaInput = styled.div`
-  width: 80%;
+  width: 70%;
   position: relative;
 
   input {
     width: 100%;
     padding: 8px;
     border: none;
+    border-radius: 8px;
   }
 
   > div {
@@ -51,12 +75,21 @@ export const ContainerPesquisaInput = styled.div`
 `
 
 export const ContainerCarrinho = styled.div`
+  padding: 8px 16px;
   display: flex;
   align-items: end;
-  gap: 8px;
+  column-gap: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 2px solid #fff;
+  border-radius: 8px;
+
+  a {
+    color: #fff;
+  }
 
   img {
-    height: 30px;
+    width: 24px;
   }
 `
 
@@ -64,9 +97,11 @@ export const Links = styled.ul`
   display: flex;
   justify-content: space-between;
   list-style: none;
-
-  li {
-  }
+  font-size: 16px;
+  font-weight: 700;
+`
+export const LinkR = styled(Link)`
+  color: #fff;
 `
 
 export const LinkDown = styled.li`
