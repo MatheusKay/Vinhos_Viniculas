@@ -15,6 +15,7 @@ type Props = {
   tipo: string
   volume: number
   preco: number
+  margin: string
 }
 
 const CardVinho = ({
@@ -23,22 +24,26 @@ const CardVinho = ({
   nome,
   preco,
   tipo,
-  volume
+  volume,
+  margin = '0'
 }: Props) => {
   return (
-    <Card>
-      <CardImgVinho>
-        <img src={imgVinho} alt="Img vinho brasileiro" />
-        <CardImg>
-          <img src={nacionalidade} alt="Bandeira do brasil" />
-        </CardImg>
-      </CardImgVinho>
-      <Titulo>{nome}</Titulo>
-      <Tags>
-        <p>{tipo}</p>|<p>{volume === 750 ? volume + 'ml' : volume + 'l'}</p>
-      </Tags>
-      <Preco>R$ {preco}</Preco>
-      <AddBotao>Adicionar</AddBotao>
+    <Card margin={margin}>
+      <div>
+        <CardImgVinho>
+          <img src={imgVinho} alt="Img vinho brasileiro" />
+          <CardImg>
+            <img src={nacionalidade} alt="Bandeira do brasil" />
+          </CardImg>
+        </CardImgVinho>
+        <Tags>
+          <span>{tipo}</span>
+          <span>{volume === 1 ? volume + 'L' : volume + 'ml'}</span>
+        </Tags>
+        <Titulo>{nome}</Titulo>
+        <Preco>R${preco + ',00'}</Preco>
+      </div>
+      <AddBotao>Comprar</AddBotao>
     </Card>
   )
 }

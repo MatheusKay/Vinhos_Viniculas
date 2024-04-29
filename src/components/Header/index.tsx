@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 import vetorLogo from '../../assets/imagens/Logo_Five_leaf_clover.png'
 import vetorCesta from '../../assets/imagens/Vector_Cart.png'
@@ -60,7 +60,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <div className="container">
-        <Logo>
+        <Logo to="/">
           <img src={vetorLogo} alt="Logo Five leaf clover" />
           <h1>Five Leaf Clover</h1>
         </Logo>
@@ -89,7 +89,7 @@ const Header = () => {
             <Links>
               <LinkDown>
                 <LinkR to="/produtos">Produtos</LinkR>
-                <button onClick={handleAbriuFechouVinhos} onBlur={handleBlur}>
+                <button onClick={handleAbriuFechouVinhos}>
                   <img src={vetorDropdown} alt="Dropdown dos vinhos" />
                 </button>
                 {downVinhos && (
@@ -103,7 +103,7 @@ const Header = () => {
               </li>
               <LinkDown>
                 <LinkR to="/produtos">Bebidas</LinkR>
-                <button onClick={handleAbriuFechouBebidas} onBlur={handleBlur}>
+                <button onClick={handleAbriuFechouBebidas}>
                   <img src={vetorDropdown} alt="Dropdown das bebidas" />
                 </button>
                 {downBebidas && (

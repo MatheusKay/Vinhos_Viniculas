@@ -22,7 +22,7 @@ export const HeaderContainer = styled.header`
   }
 `
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   display: flex;
   align-items: center;
   column-gap: 24px;

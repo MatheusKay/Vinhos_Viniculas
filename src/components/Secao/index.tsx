@@ -1,11 +1,10 @@
-import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 import CardVinho from '../CardVinho'
 
-import { Section, Titulo } from './style'
-import { Vinhos } from '../../services/apiFake'
+import { SliderContain, Titulo } from './style'
+import { Vinhos } from '../../services/api'
 
 type Props = {
   titulo: string
@@ -22,22 +21,23 @@ const Secao = ({ titulo, vinhos }: Props) => {
   }
 
   return (
-    <Section className="container">
+    <section className="container">
       <Titulo>{titulo}</Titulo>
-      <Slider {...settings}>
+      <SliderContain {...settings}>
         {vinhos.map((vinho) => (
           <CardVinho
             key={vinho.id}
-            imgVinho={vinho.imgVinho}
-            nacionalidade={vinho.nacionalidade}
-            nome={vinho.nome}
-            preco={vinho.preco}
-            tipo={vinho.tipo}
-            volume={vinho.volume}
+            imgVinho={vinho.imgs.img_url}
+            nacionalidade={vinho.imgs.country_url}
+            nome={vinho.title}
+            preco={vinho.price}
+            tipo={vinho.category}
+            volume={vinho.price}
+            margin="16px"
           />
         ))}
-      </Slider>
-    </Section>
+      </SliderContain>
+    </section>
   )
 }
 

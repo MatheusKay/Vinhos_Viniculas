@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const EstiloGlobal = createGlobalStyle`
   * {
@@ -9,7 +9,22 @@ export const EstiloGlobal = createGlobalStyle`
 
   body {
     background-color: #EEE;
-    font-family: sans-serif;
+    font-family: "Montserrat", sans-serif;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Vollkorn", serif;
+    }
+
+    .pagination__button--active {
+      background-color: #518C16;
+      border-color: #518C16;
+      color: #fff;
+    }
   }
 
   .container {
@@ -33,4 +48,9 @@ export const EstiloGlobal = createGlobalStyle`
     }
   }
 }
+`
+
+export const ImgDiv = styled.img`
+  width: 100%;
+  margin-top: 80px;
 `

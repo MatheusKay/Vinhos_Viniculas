@@ -1,28 +1,15 @@
 import styled from 'styled-components'
-import { Props } from '.'
-
-// ${(props) => props.corFundo === 'Vinhos Tintos' ? '#8b0000e6' : props.corFundo === 'Vinhos Brancos' ? '#DBC286' : props.corFundo === 'Vinhos Roses' ? '#D95959' : #8b0000e6'}
-
-// export const Secao = styled.section<
-//   Omit<Props, 'vinhos' | 'nomeSecao' | 'eBebida'>
-// >`
-//   background-color: ${(props) =>
-//     props.corFundo === 'Vinhos Tintos'
-//       ? '#8b0000'
-//       : props.corFundo === 'Vinhos Brancos'
-//         ? '#DBC286'
-//         : '#D95959'};
-//   color: white;
-// `
 
 export const Secao = styled.section`
   color: black;
 `
 
 export const Titulo = styled.h2`
-  margin-top: 56px;
+  margin: 56px 0;
   padding: 16px;
   text-align: center;
+  font-size: 32px;
+  letter-spacing: 0.15em;
 `
 
 export const Links = styled.ul`
@@ -42,8 +29,14 @@ export const Links = styled.ul`
 `
 
 export const ListaVinhos = styled.div`
-  margin-top: 56px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 18px;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 32px;
+`
+
+export const FiltrosVinhos = styled.div`
+  display: grid;
+  grid-template-columns: 284px auto;
+  column-gap: 36px;
 `

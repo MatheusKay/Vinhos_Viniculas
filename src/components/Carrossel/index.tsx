@@ -1,10 +1,16 @@
-import Slider from 'react-slick'
-
 import slide1 from '../../assets/imagens/Carousel_1.png'
 import slide2 from '../../assets/imagens/Carousel_2.png'
 import slide3 from '../../assets/imagens/Carousel_3.png'
 
-import { Slide, BotaoSlide } from './style'
+import vetorDestaque from '../../assets/imagens/btn_destaques.png'
+
+import {
+  Slide,
+  BotaoSlide,
+  SliderItem,
+  SliderContainer,
+  BotaoLink
+} from './style'
 
 const Carrossel = () => {
   const settings = {
@@ -17,26 +23,34 @@ const Carrossel = () => {
   }
 
   return (
-    <Slider {...settings}>
+    <SliderContainer {...settings}>
       <Slide>
         <img src={slide1} alt="" />
-        <div>
-          <h2>Vinhos</h2>
-        </div>
+        <SliderItem>
+          <h2>Destaques e Mais Vendidos</h2>
+          <p>Veja abaixo os maiores vinhos deste mês</p>
+          <BotaoSlide>
+            <img src={vetorDestaque} alt="Botão para ver Vinhos em destaques" />
+          </BotaoSlide>
+        </SliderItem>
       </Slide>
       <Slide>
         <img src={slide2} alt="" />
-        <div>
-          <h2>Vinhos</h2>
-        </div>
+        <SliderItem>
+          <h2>Conheça as vínicolas do Brasil</h2>
+          <p>Saiba de onde vem os melhores vinhos brasileiros</p>
+          <BotaoLink>Saiba Mais</BotaoLink>
+        </SliderItem>
       </Slide>
       <Slide>
         <img src={slide3} alt="" />
-        <div>
-          <h2>Vinhos</h2>
-        </div>
+        <SliderItem>
+          <h2>Destaques e Mais Vendidos</h2>
+          <p>Veja abaixo os maiores vinhos deste mês</p>
+          <BotaoLink>Saiba Mais</BotaoLink>
+        </SliderItem>
       </Slide>
-    </Slider>
+    </SliderContainer>
   )
 }
 
