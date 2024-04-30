@@ -1,4 +1,8 @@
+import { Dispatch, UnknownAction } from '@reduxjs/toolkit'
+
 import { Vinhos } from '../services/api'
+
+import { controlList } from '../store/reducer'
 
 export const listVinhos = (lVinhos: Vinhos[]) => {
   const newVinhos = lVinhos.slice()
@@ -47,7 +51,10 @@ export const maisVendidos = (lVinhos: Vinhos[]) => {
   return listNew
 }
 
-export const destaques = (lVinhos: Vinhos[]) => {
+export const destaques = (
+  lVinhos: Vinhos[],
+  dispatch: Dispatch<UnknownAction>
+) => {
   const somaFavoritos = lVinhos.reduce((acc, vinho) => acc + vinho.favorites, 0)
 
   const mediaFavoritos = somaFavoritos / lVinhos.length
@@ -58,5 +65,7 @@ export const destaques = (lVinhos: Vinhos[]) => {
 
   const listNew = listVinhos(filtroVendas)
 
-  return listNew
+  dispatch(controlList(listNew))
+
+  // return listNew
 }

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { Vinhos } from '../../services/api'
 
 type States = {
   filtro: string
@@ -9,6 +10,7 @@ type States = {
   inputClick: boolean
   downVinhos: boolean
   downBebidas: boolean
+  listWines: Vinhos[]
 }
 
 const initialState: States = {
@@ -19,7 +21,8 @@ const initialState: States = {
   barraVisivel: false,
   inputClick: false,
   downVinhos: false,
-  downBebidas: false
+  downBebidas: false,
+  listWines: []
 }
 
 const stateSlice = createSlice({
@@ -59,6 +62,9 @@ const stateSlice = createSlice({
     handleOpenCloseDrinks: (state) => {
       state.downBebidas = !state.downVinhos
       state.downVinhos = false
+    },
+    controlList: (state, action: PayloadAction<Vinhos[]>) => {
+      state.listWines = action.payload
     }
   }
 })
@@ -72,7 +78,8 @@ export const {
   handleOpenCloseDrinks,
   handleOpenCloseWines,
   search,
-  handleSearching
+  handleSearching,
+  controlList
 } = stateSlice.actions
 
 export default stateSlice.reducer

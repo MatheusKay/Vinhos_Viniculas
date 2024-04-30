@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
 import vetorLogo from '../../assets/imagens/Logo_Five_leaf_clover.png'
 import vetorCesta from '../../assets/imagens/Vector_Cart.png'
@@ -48,13 +48,17 @@ const Header = () => {
   }
 
   const handleAbriuFechouVinhos = () => {
-    setDownVinhos(!downVinhos)
-    setDownBebidas(false)
+    setTimeout(() => {
+      setDownVinhos(!downVinhos)
+      setDownBebidas(false)
+    }, 100)
   }
 
   const handleAbriuFechouBebidas = () => {
-    setDownVinhos(false)
-    setDownBebidas(!downBebidas)
+    setTimeout(() => {
+      setDownVinhos(false)
+      setDownBebidas(!downBebidas)
+    }, 100)
   }
 
   return (
@@ -89,11 +93,14 @@ const Header = () => {
             <Links>
               <LinkDown>
                 <LinkR to="/produtos">Produtos</LinkR>
-                <button onClick={handleAbriuFechouVinhos}>
+                <button
+                  onClick={handleAbriuFechouVinhos}
+                  onBlur={handleAbriuFechouVinhos}
+                >
                   <img src={vetorDropdown} alt="Dropdown dos vinhos" />
                 </button>
                 {downVinhos && (
-                  <div>
+                  <div onFocus={handleAbriuFechouVinhos}>
                     <BarraLinks vinhos={downVinhos} />
                   </div>
                 )}
@@ -103,11 +110,14 @@ const Header = () => {
               </li>
               <LinkDown>
                 <LinkR to="/produtos">Bebidas</LinkR>
-                <button onClick={handleAbriuFechouBebidas}>
+                <button
+                  onClick={handleAbriuFechouBebidas}
+                  onBlur={handleAbriuFechouBebidas}
+                >
                   <img src={vetorDropdown} alt="Dropdown das bebidas" />
                 </button>
                 {downBebidas && (
-                  <div>
+                  <div onFocus={handleAbriuFechouBebidas}>
                     <BarraLinks vinhos={downVinhos} />
                   </div>
                 )}
