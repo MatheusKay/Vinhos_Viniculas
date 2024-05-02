@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 
-import { ListaSugestoes } from './style'
+import { ListaSugestoes, CardSugestoes, Card } from './style'
+
+import imgPais from '../../assets/imagens/ImgPais/brasil.png'
+import imgVinho from '../../assets/imagens/ImgVinhos/vinho1-chileno.jpg'
 
 type Props = {
   clicado: boolean
@@ -14,47 +17,167 @@ const BarraPesquisa = ({ clicado }: Props) => {
   }, [clicado])
 
   return (
-    <>
+    <CardSugestoes>
       {estaClicado && (
         <>
           <h3>Sugestões de pesquisa</h3>
           <div>
             <ListaSugestoes>
               <li>
-                <span>1°</span>Vinho Tinto
+                <span>1°</span>
+                <Card>
+                  <div>
+                    <img
+                      className="img_country"
+                      src={imgPais}
+                      alt="Imagem Pais"
+                    />
+                  </div>
+                  <img className="img_wine" src={imgVinho} alt="Imagem vinho" />
+                  <h4>Vinho Tinto</h4>
+                  <span>290,00</span>
+                </Card>
               </li>
               <li>
-                <span>2°</span>Vinho Tinto
+                <span>2°</span>
+                <Card>
+                  <div>
+                    <img
+                      className="img_country"
+                      src={imgPais}
+                      alt="Imagem Pais"
+                    />
+                  </div>
+                  <img className="img_wine" src={imgVinho} alt="Imagem vinho" />
+                  <h4>Vinho Tinto</h4>
+                  <span>290,00</span>
+                </Card>
               </li>
               <li>
-                <span>3°</span>Vinho Tinto
+                <span>3°</span>
+                <Card>
+                  <div>
+                    <img
+                      className="img_country"
+                      src={imgPais}
+                      alt="Imagem Pais"
+                    />
+                  </div>
+                  <img className="img_wine" src={imgVinho} alt="Imagem vinho" />
+                  <h4>Vinho Tinto</h4>
+                  <span>290,00</span>
+                </Card>
               </li>
               <li>
-                <span>4°</span>Vinho Tinto
+                <span>4°</span>
+                <Card>
+                  <div>
+                    <img
+                      className="img_country"
+                      src={imgPais}
+                      alt="Imagem Pais"
+                    />
+                  </div>
+                  <img className="img_wine" src={imgVinho} alt="Imagem vinho" />
+                  <h4>Vinho Tinto</h4>
+                  <span>290,00</span>
+                </Card>
               </li>
               <li>
-                <span>5°</span>Vinho Tinto
+                <span>5°</span>
+                <Card>
+                  <div>
+                    <img
+                      className="img_country"
+                      src={imgPais}
+                      alt="Imagem Pais"
+                    />
+                  </div>
+                  <img className="img_wine" src={imgVinho} alt="Imagem vinho" />
+                  <h4>Vinho Tinto</h4>
+                  <span>290,00</span>
+                </Card>
               </li>
               <li>
-                <span>6°</span>Vinho Tinto
+                <span>6°</span>
+                <Card>
+                  <div>
+                    <img
+                      className="img_country"
+                      src={imgPais}
+                      alt="Imagem Pais"
+                    />
+                  </div>
+                  <img className="img_wine" src={imgVinho} alt="Imagem vinho" />
+                  <h4>Vinho Tinto</h4>
+                  <span>290,00</span>
+                </Card>
               </li>
               <li>
-                <span>7°</span>Vinho Tinto
+                <span>7°</span>
+                <Card>
+                  <div>
+                    <img
+                      className="img_country"
+                      src={imgPais}
+                      alt="Imagem Pais"
+                    />
+                  </div>
+                  <img className="img_wine" src={imgVinho} alt="Imagem vinho" />
+                  <h4>Vinho Tinto</h4>
+                  <span>290,00</span>
+                </Card>
               </li>
               <li>
-                <span>8°</span>Vinho Tinto
+                <span>8°</span>
+                <Card>
+                  <div>
+                    <img
+                      className="img_country"
+                      src={imgPais}
+                      alt="Imagem Pais"
+                    />
+                  </div>
+                  <img className="img_wine" src={imgVinho} alt="Imagem vinho" />
+                  <h4>Vinho Tinto</h4>
+                  <span>290,00</span>
+                </Card>
               </li>
               <li>
-                <span>9°</span>Vinho Tinto
+                <span>9°</span>
+                <Card>
+                  <div>
+                    <img
+                      className="img_country"
+                      src={imgPais}
+                      alt="Imagem Pais"
+                    />
+                  </div>
+                  <img className="img_wine" src={imgVinho} alt="Imagem vinho" />
+                  <h4>Vinho Tinto</h4>
+                  <span>290,00</span>
+                </Card>
               </li>
               <li>
-                <span>10°</span>Vinho Tinto
+                <span>10°</span>
+                <Card>
+                  <div>
+                    <img
+                      className="img_country"
+                      src={imgPais}
+                      alt="Imagem Pais"
+                    />
+                  </div>
+                  <img className="img_wine" src={imgVinho} alt="Imagem vinho" />
+                  <h4>Vinho Tinto</h4>
+                  <span>290,00</span>
+                </Card>
               </li>
             </ListaSugestoes>
           </div>
         </>
       )}
-    </>
+    </CardSugestoes>
   )
 }
 

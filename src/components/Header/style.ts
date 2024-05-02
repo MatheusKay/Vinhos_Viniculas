@@ -64,6 +64,7 @@ export const ContainerPesquisaInput = styled.div`
   }
 
   > div {
+    height: 300px;
     width: 100%;
     padding: 16px;
     position: absolute;
@@ -71,6 +72,7 @@ export const ContainerPesquisaInput = styled.div`
     left: 0;
     background-color: white;
     z-index: 1;
+    overflow-y: overlay;
   }
 `
 

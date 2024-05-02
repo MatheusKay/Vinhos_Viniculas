@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import vetorLogo from '../../assets/imagens/Logo_Five_leaf_clover.png'
 import vetorCesta from '../../assets/imagens/Vector_Cart.png'
@@ -26,40 +26,68 @@ const Header = () => {
   const [downVinhos, setDownVinhos] = useState(false)
   const [downBebidas, setDownBebidas] = useState(false)
 
+  const dropDownVinho = useRef<HTMLLIElement>(null)
+  const dropDownBebidas = useRef<HTMLLIElement>(null)
+  const inputpesquisa = useRef<HTMLDivElement>(null)
+
   const handleFoco = () => {
     setInputClick(true)
     setBarraVisivel(true)
   }
 
-  const handleBlur = () => {
-    setInputClick(false)
-    setBarraVisivel(false)
-    setDownBebidas(false)
-    setDownVinhos(false)
-  }
-
   const handleDigitando = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEstaDigitando(e.target.value)
 
-    if (estaDigitando) {
+    if (estaDigitando.length > 0) {
       setInputClick(false)
       setBarraVisivel(true)
+    } else {
+      setInputClick(true)
+      setBarraVisivel(false)
     }
   }
 
   const handleAbriuFechouVinhos = () => {
-    setTimeout(() => {
-      setDownVinhos(!downVinhos)
-      setDownBebidas(false)
-    }, 100)
+    setDownVinhos(!downVinhos)
+    setDownBebidas(false)
   }
 
   const handleAbriuFechouBebidas = () => {
-    setTimeout(() => {
-      setDownVinhos(false)
-      setDownBebidas(!downBebidas)
-    }, 100)
+    setDownVinhos(false)
+    setDownBebidas(!downBebidas)
   }
+
+  useEffect(() => {
+    const dropDownClose = (e: MouseEvent) => {
+      if (
+        dropDownVinho.current &&
+        !dropDownVinho.current.contains(e.target as Node)
+      ) {
+        setDownVinhos(false)
+      }
+
+      if (
+        dropDownBebidas.current &&
+        !dropDownBebidas.current.contains(e.target as Node)
+      ) {
+        setDownBebidas(false)
+      }
+
+      if (
+        inputpesquisa.current &&
+        !inputpesquisa.current.contains(e.target as Node)
+      ) {
+        setInputClick(false)
+        setBarraVisivel(false)
+      }
+    }
+
+    document.addEventListener('mousedown', dropDownClose)
+
+    return () => {
+      document.addEventListener('mousedown', dropDownClose)
+    }
+  }, [])
 
   return (
     <HeaderContainer>
@@ -70,10 +98,9 @@ const Header = () => {
         </Logo>
         <ContainerInfos>
           <ContainerPesquisa>
-            <ContainerPesquisaInput>
+            <ContainerPesquisaInput ref={inputpesquisa}>
               <input
-                onFocus={handleFoco}
-                onBlur={handleBlur}
+                onClick={handleFoco}
                 onChange={(e) => handleDigitando(e)}
                 type="text"
                 placeholder="Pesquise pelo seu vinho aqui"
@@ -91,16 +118,13 @@ const Header = () => {
           </ContainerPesquisa>
           <div>
             <Links>
-              <LinkDown>
+              <LinkDown ref={dropDownVinho}>
                 <LinkR to="/produtos">Produtos</LinkR>
-                <button
-                  onClick={handleAbriuFechouVinhos}
-                  onBlur={handleAbriuFechouVinhos}
-                >
+                <button onClick={handleAbriuFechouVinhos}>
                   <img src={vetorDropdown} alt="Dropdown dos vinhos" />
                 </button>
                 {downVinhos && (
-                  <div onFocus={handleAbriuFechouVinhos}>
+                  <div>
                     <BarraLinks vinhos={downVinhos} />
                   </div>
                 )}
@@ -108,16 +132,13 @@ const Header = () => {
               <li>
                 <LinkR to="/vinicolas">Vinicolas</LinkR>
               </li>
-              <LinkDown>
+              <LinkDown ref={dropDownBebidas}>
                 <LinkR to="/produtos">Bebidas</LinkR>
-                <button
-                  onClick={handleAbriuFechouBebidas}
-                  onBlur={handleAbriuFechouBebidas}
-                >
+                <button onClick={handleAbriuFechouBebidas}>
                   <img src={vetorDropdown} alt="Dropdown das bebidas" />
                 </button>
                 {downBebidas && (
-                  <div onFocus={handleAbriuFechouBebidas}>
+                  <div>
                     <BarraLinks vinhos={downVinhos} />
                   </div>
                 )}
