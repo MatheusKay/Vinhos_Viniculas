@@ -20,10 +20,8 @@ export const ContainerVinicola = styled.div<Props>`
 export const ContainerPoster = styled.div`
   max-width: 550px;
   width: 320px;
-  position: relative;
   transition: width 1.5s ease-in-out;
   border-radius: 16px;
-  box-shadow: 0px 8px 36px 0px;
 
   &:hover {
     width: 100%;
@@ -65,17 +63,6 @@ export const ContainerInfos = styled.div<Props>`
 export const Titulo = styled.h3`
   margin-bottom: 8px;
   font-size: 24px;
-`
-
-export const Overlay = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 16px;
-  z-index: 1;
 `
 
 export const InfosVinicola = styled.div<Props>`

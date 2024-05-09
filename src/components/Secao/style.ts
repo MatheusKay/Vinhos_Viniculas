@@ -1,28 +1,44 @@
 import Slider from 'react-slick'
 import styled from 'styled-components'
 
+import vetorDestaque from '../../assets/imagens/btn_destaques.png'
+
 export const SliderContain = styled(Slider)`
+  .slick-list {
+    width: 95%;
+    margin: 0 auto;
+  }
+
   .slick-next:before,
   .slick-prev:before {
-    font-size: 40px;
-    color: #dc143c;
+    width: 32px;
+    height: 32px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    background-color: #dc143c;
   }
 
   .slick-next {
-    right: -25px;
+    right: 0;
 
     &:before {
-      content: 'ᐳ';
+      content: url(${vetorDestaque});
       opacity: 1;
+      transform: rotate(270deg) scale(0.7);
     }
   }
 
   .slick-prev {
-    left: -45px;
+    left: -25px;
 
     &:before {
-      content: 'ᐸ';
+      content: url(${vetorDestaque});
       opacity: 1;
+      transform: rotate(90deg) scale(0.7);
     }
   }
 `

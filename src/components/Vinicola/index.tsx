@@ -4,7 +4,6 @@ import {
   ContainerVinicola,
   ContainerInfos,
   Titulo,
-  Overlay,
   ContainerPoster,
   InfosVinicola
 } from './style'
@@ -37,7 +36,6 @@ const Vinicola = ({
     <div className="container">
       <ContainerVinicola estaInvertido={estaInvertido}>
         <ContainerPoster>
-          <Overlay />
           <PosterVinhos altImg={altImg} linkImg={linkImg} />
         </ContainerPoster>
         <ContainerInfos estaInvertido={estaInvertido}>

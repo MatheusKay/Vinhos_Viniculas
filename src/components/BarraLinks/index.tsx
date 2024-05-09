@@ -5,40 +5,31 @@ import { LinksVinhos } from './style'
 
 import { filtrar } from '../../store/reducer'
 
-type Props = {
-  vinhos: boolean
-}
-
-const BarraLinks = ({ vinhos }: Props) => {
+const BarraLinks = () => {
   const dispatch = useDispatch()
 
   return (
     <>
       <LinksVinhos>
-        {vinhos ? (
-          <>
-            <li>
-              <Link to="/produtos" onClick={() => dispatch(filtrar('Tinto'))}>
-                Vinhos Tintos
-              </Link>
-            </li>
-            <li onClick={() => dispatch(filtrar('Branco'))}>
-              <Link to="/produtos">Vinhos Brancos</Link>
-            </li>
-            <li onClick={() => dispatch(filtrar('Rose'))}>
-              <Link to="/produtos">Vinhos Roses</Link>
-            </li>
-          </>
-        ) : (
-          <>
-            <li onClick={() => dispatch(filtrar('Organico'))}>
-              <Link to="/produtos">Vinhos Organicos/Nat</Link>
-            </li>
-            <li onClick={() => dispatch(filtrar('Lata'))}>
-              <Link to="/produtos">Vinhos em lata</Link>
-            </li>
-          </>
-        )}
+        <>
+          <li>
+            <Link to="/produtos" onClick={() => dispatch(filtrar('Tinto'))}>
+              Vinhos Tintos
+            </Link>
+          </li>
+          <li onClick={() => dispatch(filtrar('Branco'))}>
+            <Link to="/produtos">Vinhos Brancos</Link>
+          </li>
+          <li onClick={() => dispatch(filtrar('Rose'))}>
+            <Link to="/produtos">Vinhos Roses</Link>
+          </li>
+          <li onClick={() => dispatch(filtrar('Organico'))}>
+            <Link to="/produtos">Vinhos Organicos</Link>
+          </li>
+          <li onClick={() => dispatch(filtrar('Lata'))}>
+            <Link to="/produtos">Vinhos em lata</Link>
+          </li>
+        </>
       </LinksVinhos>
     </>
   )

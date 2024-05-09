@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux'
+import { Vinhos } from '../../services/api'
 import {
   Card,
   CardImg,
@@ -7,14 +9,16 @@ import {
   Preco,
   AddBotao
 } from './style'
+import { AddCartList } from '../../store/reducer'
 
 type Props = {
+  wine: Vinhos
   imgVinho: string
   nacionalidade: string
   nome: string
   tipo: string
   volume: number
-  preco: number
+  preco: string
   margin: string
 }
 
@@ -25,8 +29,11 @@ const CardVinho = ({
   preco,
   tipo,
   volume,
-  margin = '0'
+  margin = '0',
+  wine
 }: Props) => {
+  const dispatch = useDispatch()
+
   return (
     <Card margin={margin}>
       <div>
@@ -41,9 +48,9 @@ const CardVinho = ({
           <span>{volume === 1 ? volume + 'L' : volume + 'ml'}</span>
         </Tags>
         <Titulo>{nome}</Titulo>
-        <Preco>R${preco + ',00'}</Preco>
+        <Preco>{preco}</Preco>
       </div>
-      <AddBotao>Comprar</AddBotao>
+      <AddBotao onClick={() => dispatch(AddCartList(wine))}>Comprar</AddBotao>
     </Card>
   )
 }

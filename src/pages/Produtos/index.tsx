@@ -5,7 +5,7 @@ import SecaoProdutos from '../../components/SecaoProdutos'
 import { useGetVinhosQuery } from '../../services/api'
 
 import { RootReducer } from '../../store'
-import { filtrarVinhos, listVinhos } from '../../utility'
+import { filtrarVinhos } from '../../utility'
 
 const Produtos = () => {
   const { data: vinhos } = useGetVinhosQuery()
@@ -14,7 +14,7 @@ const Produtos = () => {
   )
 
   if (vinhos) {
-    const listExibida = listVinhos(vinhos)
+    const listExibida = vinhos
     const vinhosFiltro = filtrarVinhos(listExibida, filtro, filtroCountry)
 
     return (

@@ -4,7 +4,9 @@ import 'slick-carousel/slick/slick-theme.css'
 import CardVinho from '../CardVinho'
 
 import { SliderContain, Titulo } from './style'
+
 import { Vinhos } from '../../services/api'
+import { formattedPrice } from '../../utility'
 
 type Props = {
   titulo: string
@@ -30,10 +32,11 @@ const Secao = ({ titulo, vinhos }: Props) => {
             imgVinho={vinho.imgs.img_url}
             nacionalidade={vinho.imgs.country_url}
             nome={vinho.title}
-            preco={vinho.price}
+            preco={formattedPrice(vinho.price)}
             tipo={vinho.category}
             volume={vinho.price}
             margin="16px"
+            wine={vinho}
           />
         ))}
       </SliderContain>

@@ -77,17 +77,6 @@ export const ContainerImg = styled.div`
   }
 `
 
-export const Overlay = styled.div`
-  width: 180px;
-  height: 360px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 16px;
-  z-index: 1;
-`
-
 export const Divisor = styled.div`
   display: flex;
   align-items: center;

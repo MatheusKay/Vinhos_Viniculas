@@ -85,10 +85,8 @@ export const ContainerCarrinho = styled.div`
   font-weight: 700;
   border: 2px solid #fff;
   border-radius: 8px;
-
-  a {
-    color: #fff;
-  }
+  cursor: pointer;
+  color: #fff;
 
   img {
     width: 24px;
@@ -119,7 +117,12 @@ export const LinkDown = styled.li`
     display: flex;
     align-items: center;
     border: none;
+    background-color: transparent;
     cursor: pointer;
+
+    svg {
+      fill: #fff;
+    }
   }
 
   > div {

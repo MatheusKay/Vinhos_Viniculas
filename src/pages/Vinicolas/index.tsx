@@ -7,7 +7,7 @@ import villaFrancioni from '../../assets/imagens/ImgVinicolas/vinicolas-no-brasi
 import posterVinicola from '../../assets/imagens/Poster_vinicola.png'
 import logo from '../../assets/imagens/Logo_Five_leaf_clover.png'
 
-import { ContainerImg, SecaoInfos, Overlay, Poster, Divisor } from './style'
+import { ContainerImg, SecaoInfos, Poster, Divisor } from './style'
 
 type MockVinicolas = {
   id: number
@@ -105,7 +105,6 @@ const Vinicolas = () => (
       <ContainerImg>
         {mockVinicolas.map((vinicolaImg) => (
           <div key={vinicolaImg.id}>
-            <Overlay />
             <img src={vinicolaImg.linkImg} alt={vinicolaImg.altImg} />
           </div>
         ))}

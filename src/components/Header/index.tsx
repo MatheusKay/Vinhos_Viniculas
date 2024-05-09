@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import vetorLogo from '../../assets/imagens/Logo_Five_leaf_clover.png'
 import vetorCesta from '../../assets/imagens/Vector_Cart.png'
-import vetorDropdown from '../../assets/imagens/arrow-down-circle.svg'
 
 import {
   HeaderContainer,
@@ -19,16 +19,28 @@ import {
 import BarraPesquisa from '../BarraPesquisa'
 import BarraLinks from '../BarraLinks'
 
+import { Vinhos, useGetVinhosQuery } from '../../services/api'
+
+import { CartOpen } from '../../store/reducer'
+import Carrinho from '../../pages/Carrinho'
+
+import { RootReducer } from '../../store'
+
 const Header = () => {
   const [barraVisivel, setBarraVisivel] = useState(false)
   const [inputClick, setInputClick] = useState(false)
   const [estaDigitando, setEstaDigitando] = useState('')
-  const [downVinhos, setDownVinhos] = useState(false)
   const [downBebidas, setDownBebidas] = useState(false)
 
-  const dropDownVinho = useRef<HTMLLIElement>(null)
   const dropDownBebidas = useRef<HTMLLIElement>(null)
   const inputpesquisa = useRef<HTMLDivElement>(null)
+
+  const { data: vinhos } = useGetVinhosQuery()
+
+  const { openCart, listCart } = useSelector(
+    (state: RootReducer) => state.state
+  )
+  const dispatch = useDispatch()
 
   const handleFoco = () => {
     setInputClick(true)
@@ -37,35 +49,14 @@ const Header = () => {
 
   const handleDigitando = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEstaDigitando(e.target.value)
-
-    if (estaDigitando.length > 0) {
-      setInputClick(false)
-      setBarraVisivel(true)
-    } else {
-      setInputClick(true)
-      setBarraVisivel(false)
-    }
-  }
-
-  const handleAbriuFechouVinhos = () => {
-    setDownVinhos(!downVinhos)
-    setDownBebidas(false)
   }
 
   const handleAbriuFechouBebidas = () => {
-    setDownVinhos(false)
     setDownBebidas(!downBebidas)
   }
 
   useEffect(() => {
     const dropDownClose = (e: MouseEvent) => {
-      if (
-        dropDownVinho.current &&
-        !dropDownVinho.current.contains(e.target as Node)
-      ) {
-        setDownVinhos(false)
-      }
-
       if (
         dropDownBebidas.current &&
         !dropDownBebidas.current.contains(e.target as Node)
@@ -89,69 +80,116 @@ const Header = () => {
     }
   }, [])
 
-  return (
-    <HeaderContainer>
-      <div className="container">
-        <Logo to="/">
-          <img src={vetorLogo} alt="Logo Five leaf clover" />
-          <h1>Five Leaf Clover</h1>
-        </Logo>
-        <ContainerInfos>
-          <ContainerPesquisa>
-            <ContainerPesquisaInput ref={inputpesquisa}>
-              <input
-                onClick={handleFoco}
-                onChange={(e) => handleDigitando(e)}
-                type="text"
-                placeholder="Pesquise pelo seu vinho aqui"
-              />
-              {barraVisivel && (
-                <div>
-                  <BarraPesquisa clicado={inputClick} />
-                </div>
-              )}
-            </ContainerPesquisaInput>
-            <ContainerCarrinho>
-              <a href="">Meu carrinho</a>
-              <img src={vetorCesta} alt="Meu carrinho" />
-            </ContainerCarrinho>
-          </ContainerPesquisa>
-          <div>
-            <Links>
-              <LinkDown ref={dropDownVinho}>
-                <LinkR to="/produtos">Produtos</LinkR>
-                <button onClick={handleAbriuFechouVinhos}>
-                  <img src={vetorDropdown} alt="Dropdown dos vinhos" />
-                </button>
-                {downVinhos && (
-                  <div>
-                    <BarraLinks vinhos={downVinhos} />
-                  </div>
-                )}
-              </LinkDown>
-              <li>
-                <LinkR to="/vinicolas">Vinicolas</LinkR>
-              </li>
-              <LinkDown ref={dropDownBebidas}>
-                <LinkR to="/produtos">Bebidas</LinkR>
-                <button onClick={handleAbriuFechouBebidas}>
-                  <img src={vetorDropdown} alt="Dropdown das bebidas" />
-                </button>
-                {downBebidas && (
-                  <div>
-                    <BarraLinks vinhos={downVinhos} />
-                  </div>
-                )}
-              </LinkDown>
-              <li>
-                <LinkR to="/">Fale conosco</LinkR>
-              </li>
-            </Links>
+  const filtrarVinhos = (lVinhos: Vinhos[]) => {
+    if (estaDigitando.length > 0) {
+      const formatacao = new RegExp(estaDigitando, 'i')
+
+      const filtro = lVinhos.filter((vinho) => {
+        return formatacao.test(vinho.title)
+      })
+
+      return filtro
+    }
+
+    if (vinhos) {
+      const listaVinhos = vinhos.slice(0, 10)
+
+      return listaVinhos
+    }
+
+    return []
+  }
+
+  if (vinhos) {
+    const vinhosBarra = filtrarVinhos(vinhos)
+
+    return (
+      <>
+        <HeaderContainer>
+          <div className="container">
+            <Logo to="/">
+              <img src={vetorLogo} alt="Logo Five leaf clover" />
+              <h1>Five Leaf Clover</h1>
+            </Logo>
+            <ContainerInfos>
+              <ContainerPesquisa>
+                <ContainerPesquisaInput ref={inputpesquisa}>
+                  <input
+                    onClick={handleFoco}
+                    onChange={(e) => handleDigitando(e)}
+                    type="text"
+                    placeholder="Pesquise pelo seu vinho aqui"
+                  />
+                  {barraVisivel && (
+                    <div>
+                      <BarraPesquisa
+                        vinhos={vinhosBarra}
+                        clicado={inputClick}
+                        estaDigitando={estaDigitando}
+                      />
+                    </div>
+                  )}
+                </ContainerPesquisaInput>
+                <ContainerCarrinho onClick={() => dispatch(CartOpen())}>
+                  <p>Meu carrinho</p>
+                  <img src={vetorCesta} alt="Meu carrinho" />
+                </ContainerCarrinho>
+              </ContainerPesquisa>
+              <div>
+                <Links>
+                  <li>
+                    <LinkR to="/">Home</LinkR>
+                  </li>
+                  <li>
+                    <LinkR to="/vinicolas">Vinicolas</LinkR>
+                  </li>
+                  <LinkDown ref={dropDownBebidas}>
+                    <LinkR to="/produtos">Bebidas</LinkR>
+                    <button onClick={handleAbriuFechouBebidas}>
+                      {downBebidas ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          className="bi bi-caret-up-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          className="bi bi-caret-down-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                        </svg>
+                      )}
+                    </button>
+                    {downBebidas && (
+                      <div>
+                        <BarraLinks />
+                      </div>
+                    )}
+                  </LinkDown>
+                  <li>
+                    <LinkR to="/fale-conosco">Fale conosco</LinkR>
+                  </li>
+                </Links>
+              </div>
+            </ContainerInfos>
           </div>
-        </ContainerInfos>
-      </div>
-    </HeaderContainer>
-  )
+        </HeaderContainer>
+        <Carrinho addWines={listCart} isOpen={openCart} />
+      </>
+    )
+  }
+
+  return <div>Carregando..</div>
 }
 
 export default Header

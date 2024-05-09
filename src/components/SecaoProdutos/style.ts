@@ -30,13 +30,7 @@ export const Links = styled.ul`
 
 export const ListaVinhos = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 16px;
   row-gap: 32px;
-`
-
-export const FiltrosVinhos = styled.div`
-  display: grid;
-  grid-template-columns: 284px auto;
-  column-gap: 36px;
 `

@@ -5,24 +5,16 @@ type States = {
   filtro: string
   filtroCountry: string
   currentP: number
-  estaDigitando: string
-  barraVisivel: boolean
-  inputClick: boolean
-  downVinhos: boolean
-  downBebidas: boolean
-  listWines: Vinhos[]
+  openCart: boolean
+  listCart: Vinhos[]
 }
 
 const initialState: States = {
   filtro: '',
   filtroCountry: '',
   currentP: 0,
-  estaDigitando: '',
-  barraVisivel: false,
-  inputClick: false,
-  downVinhos: false,
-  downBebidas: false,
-  listWines: []
+  openCart: false,
+  listCart: []
 }
 
 const stateSlice = createSlice({
@@ -38,33 +30,30 @@ const stateSlice = createSlice({
     currentP: (state, action: PayloadAction<number>) => {
       state.currentP = action.payload
     },
-    search: (state, action: PayloadAction<string>) => {
-      state.estaDigitando = action.payload
+    CartOpen: (state) => {
+      state.openCart = !state.openCart
     },
-    handleSearching: (state) => {
-      state.inputClick = false
-      state.barraVisivel = true
+    AddCartList: (state, action: PayloadAction<Vinhos>) => {
+      const find = state.listCart.find(
+        (item) => item.title === action.payload.title
+      )
+
+      if (find) {
+        alert('Esse vinho ja esta no seu carrinho confira-o por favor')
+
+        state.openCart = true
+      } else {
+        state.listCart.push(action.payload)
+
+        state.openCart = true
+      }
     },
-    handleFocus: (state) => {
-      state.inputClick = true
-      state.barraVisivel = true
-    },
-    handleBlur: (state) => {
-      state.inputClick = false
-      state.barraVisivel = false
-      state.downBebidas = false
-      state.downVinhos = false
-    },
-    handleOpenCloseWines: (state) => {
-      state.downVinhos = !state.downVinhos
-      state.downBebidas = false
-    },
-    handleOpenCloseDrinks: (state) => {
-      state.downBebidas = !state.downVinhos
-      state.downVinhos = false
-    },
-    controlList: (state, action: PayloadAction<Vinhos[]>) => {
-      state.listWines = action.payload
+    RmvCartList: (state, action: PayloadAction<string>) => {
+      const newList = state.listCart.filter(
+        (item) => item.title !== action.payload
+      )
+
+      state.listCart = newList
     }
   }
 })
@@ -73,13 +62,9 @@ export const {
   filtrar,
   filtrarCountry,
   currentP,
-  handleBlur,
-  handleFocus,
-  handleOpenCloseDrinks,
-  handleOpenCloseWines,
-  search,
-  handleSearching,
-  controlList
+  CartOpen,
+  AddCartList,
+  RmvCartList
 } = stateSlice.actions
 
 export default stateSlice.reducer

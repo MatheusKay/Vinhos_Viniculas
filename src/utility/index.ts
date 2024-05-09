@@ -1,18 +1,14 @@
-import { Dispatch, UnknownAction } from '@reduxjs/toolkit'
-
 import { Vinhos } from '../services/api'
 
-import { controlList } from '../store/reducer'
+// export const listVinhos = (lVinhos: Vinhos[]) => {
+//   const newVinhos = lVinhos.slice()
 
-export const listVinhos = (lVinhos: Vinhos[]) => {
-  const newVinhos = lVinhos.slice()
-
-  for (let i = newVinhos.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[newVinhos[i], newVinhos[j]] = [newVinhos[j], newVinhos[i]]
-  }
-  return newVinhos
-}
+//   for (let i = newVinhos.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1))
+//     ;[newVinhos[i], newVinhos[j]] = [newVinhos[j], newVinhos[i]]
+//   }
+//   return newVinhos
+// }
 
 export const filtrarVinhos = (
   opcao: Vinhos[],
@@ -46,15 +42,10 @@ export const maisVendidos = (lVinhos: Vinhos[]) => {
 
   const filtroVendas = lVinhos.filter((vinho) => vinho.sold > mediaVendas)
 
-  const listNew = listVinhos(filtroVendas)
-
-  return listNew
+  return filtroVendas
 }
 
-export const destaques = (
-  lVinhos: Vinhos[],
-  dispatch: Dispatch<UnknownAction>
-) => {
+export const destaques = (lVinhos: Vinhos[]) => {
   const somaFavoritos = lVinhos.reduce((acc, vinho) => acc + vinho.favorites, 0)
 
   const mediaFavoritos = somaFavoritos / lVinhos.length
@@ -63,9 +54,21 @@ export const destaques = (
     (vinho) => vinho.favorites > mediaFavoritos
   )
 
-  const listNew = listVinhos(filtroVendas)
+  return filtroVendas
+}
 
-  dispatch(controlList(listNew))
+export const formattedPrice = (price: number) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(price)
+}
 
-  // return listNew
+export const getTotalPrice = (items: Vinhos[]) => {
+  return items.reduce((accumulator, currentItem) => {
+    if (currentItem.price) {
+      return (accumulator += currentItem.price)
+    }
+    return 0
+  }, 0)
 }
