@@ -38,7 +38,7 @@ const BarraPesquisa = ({ clicado, vinhos, estaDigitando }: Props) => {
                       <div>
                         <img
                           className="img_country"
-                          src={imgPais}
+                          src={vinho.imgs.country_url}
                           alt="Imagem Pais"
                         />
                       </div>

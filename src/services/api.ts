@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-export type Vinhos = {
+export interface Vinhos {
   imgs: {
     img_url: string
     country_url: string
@@ -13,6 +13,7 @@ export type Vinhos = {
   favorites: number
   category: string
   country: string
+  count: number
 }
 
 const api = createApi({

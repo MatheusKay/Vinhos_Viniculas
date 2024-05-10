@@ -54,21 +54,3 @@ export const ImgDiv = styled.img`
   width: 100%;
   margin-top: 80px;
 `
-
-// ads
-// asdsdsdsdasd
-// sd
-// asd
-// as
-// das
-// dasdasdsds
-// d
-// sdasd
-// asd
-// das
-
-// dd
-// sad
-// a
-// sd
-// asd

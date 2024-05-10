@@ -106,7 +106,7 @@ const Select = ({ category }: Props) => {
               <li onClick={() => dispatch(filtrarCountry(''))}>
                 <span>Todos</span>
               </li>
-              <li onClick={() => dispatch(filtrarCountry('Argentina'))}>
+              <li onClick={() => dispatch(filtrarCountry('Argentino'))}>
                 <span>Argentina</span>
                 <img src={bandArgentina} alt="" />
               </li>
@@ -118,7 +118,7 @@ const Select = ({ category }: Props) => {
                 <span>Chile</span>
                 <img src={bandChile} alt="" />
               </li>
-              <li onClick={() => dispatch(filtrarCountry('Franca'))}>
+              <li onClick={() => dispatch(filtrarCountry('França'))}>
                 <span>Franca</span>
                 <img src={bandFranca} alt="" />
               </li>

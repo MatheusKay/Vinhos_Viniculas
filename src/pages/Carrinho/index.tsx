@@ -1,10 +1,12 @@
-import { useDispatch } from 'react-redux'
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { Cart, AsideCart, CardCart, AsideCartFooter } from './style'
 
 import { Vinhos } from '../../services/api'
-import { CartOpen, RmvCartList } from '../../store/reducer'
+import { CartOpen, RmvCartList, addCount, rmvCount } from '../../store/reducer'
 import { formattedPrice, getTotalPrice } from '../../utility'
+import { RootReducer } from '../../store'
 
 type Props = {
   addWines: Vinhos[]
@@ -12,6 +14,8 @@ type Props = {
 }
 
 const Carrinho = ({ addWines, isOpen }: Props) => {
+  const { countAdd } = useSelector((s: RootReducer) => s.state)
+
   const dispatch = useDispatch()
 
   return (
@@ -53,49 +57,61 @@ const Carrinho = ({ addWines, isOpen }: Props) => {
             <ul className="cards_list">
               {addWines && (
                 <>
-                  {addWines.map(
-                    ({ id, title, category, price, imgs, country }) => (
-                      <CardCart key={id}>
-                        <img
-                          src={imgs.img_url}
-                          alt={'Imagem do vinho ' + title}
-                        />
-                        <div className="card_infos">
-                          <h4>{title}</h4>
-                          <div className="card_tags">
-                            <span>{category}</span>
-                            <span>{price}</span>
-                            <img
-                              src={imgs.country_url}
-                              alt={'Vinho do ' + country}
-                            />
-                          </div>
-                          <h3>{formattedPrice(price)}</h3>
-                          <div className="card_footer">
-                            <div className="card_select">
-                              <button className="card_select_left">+</button>
-                              <span>1</span>
-                              <button className="card_select_right">-</button>
-                            </div>
+                  {addWines.map((vinhos) => (
+                    <CardCart key={vinhos.id}>
+                      <img
+                        src={vinhos.imgs.img_url}
+                        alt={'Imagem do vinho ' + vinhos.title}
+                      />
+                      <div className="card_infos">
+                        <h4>{vinhos.title}</h4>
+                        <div className="card_tags">
+                          <span>{vinhos.category}</span>
+                          <span>{vinhos.price}</span>
+                          <img
+                            src={vinhos.imgs.country_url}
+                            alt={'Vinho do ' + vinhos.country}
+                          />
+                        </div>
+                        <h3>{formattedPrice(vinhos.price * countAdd)}</h3>
+                        <div className="card_footer">
+                          <div className="card_select">
                             <button
-                              onClick={() => dispatch(RmvCartList(title))}
+                              onClick={() => dispatch(addCount(vinhos))}
+                              className="card_select_left"
                             >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                className="bi bi-trash3-fill"
-                                viewBox="0 0 16 16"
-                              >
-                                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
-                              </svg>
+                              +
+                            </button>
+                            <span>
+                              {vinhos.count < 1
+                                ? vinhos.count + 1
+                                : vinhos.count}
+                            </span>
+                            <button
+                              onClick={() => dispatch(rmvCount(vinhos))}
+                              className="card_select_right"
+                            >
+                              -
                             </button>
                           </div>
+                          <button
+                            onClick={() => dispatch(RmvCartList(vinhos.title))}
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              className="bi bi-trash3-fill"
+                              viewBox="0 0 16 16"
+                            >
+                              <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+                            </svg>
+                          </button>
                         </div>
-                      </CardCart>
-                    )
-                  )}
+                      </div>
+                    </CardCart>
+                  ))}
                 </>
               )}
             </ul>
