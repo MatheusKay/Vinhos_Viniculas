@@ -28,7 +28,7 @@ export const Logo = styled(Link)`
   column-gap: 24px;
 
   img {
-    width: 96px;
+    width: 214px;
   }
 
   h1 {

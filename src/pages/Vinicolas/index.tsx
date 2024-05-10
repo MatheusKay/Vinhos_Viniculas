@@ -5,7 +5,7 @@ import lidioCarraro from '../../assets/imagens/ImgVinicolas/vinicolas-no-brasil-
 import terraNova from '../../assets/imagens/ImgVinicolas/vinicolas-no-brasil-vinicola-terranova.png'
 import villaFrancioni from '../../assets/imagens/ImgVinicolas/vinicolas-no-brasil-vinicola-villa-francioni.png'
 import posterVinicola from '../../assets/imagens/Poster_vinicola.png'
-import logo from '../../assets/imagens/Logo_Five_leaf_clover.png'
+import logo from '../../assets/imagens/Logo_Five_leaf_clover.svg'
 
 import { ContainerImg, SecaoInfos, Poster, Divisor } from './style'
 

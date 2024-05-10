@@ -9,7 +9,7 @@ import {
   FooterInfo
 } from './style'
 
-import logo from '../../assets/imagens/Logo_Five_leaf_clover.png'
+import logo from '../../assets/imagens/Logo_Five_leaf_clover.svg'
 
 const Footer = () => {
   return (

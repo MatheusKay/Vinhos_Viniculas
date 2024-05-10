@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 
 import { ListaSugestoes, CardSugestoes, Card } from './style'
 
-import imgPais from '../../assets/imagens/ImgPais/brasil.png'
 import { Vinhos } from '../../services/api'
 import { formattedPrice } from '../../utility'
+import { useDispatch } from 'react-redux'
+import { cardModal, openModal } from '../../store/reducer'
 
 type Props = {
   clicado: boolean
@@ -15,9 +16,16 @@ type Props = {
 const BarraPesquisa = ({ clicado, vinhos, estaDigitando }: Props) => {
   const [estaClicado, setEstaClicado] = useState(false)
 
+  const dispatch = useDispatch()
+
   useEffect(() => {
     setEstaClicado(clicado)
   }, [clicado])
+
+  const handleModal = (wine: Vinhos) => {
+    dispatch(openModal())
+    dispatch(cardModal(wine))
+  }
 
   return (
     <CardSugestoes>
@@ -32,7 +40,7 @@ const BarraPesquisa = ({ clicado, vinhos, estaDigitando }: Props) => {
             {vinhos.length > 0 ? (
               <ListaSugestoes>
                 {vinhos.map((vinho, index) => (
-                  <li key={vinho.id}>
+                  <li key={vinho.id} onClick={() => handleModal(vinho)}>
                     <span>{index + 1}°</span>
                     <Card>
                       <div>

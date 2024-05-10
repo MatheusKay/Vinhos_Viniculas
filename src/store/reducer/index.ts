@@ -12,6 +12,8 @@ type States = {
   openCart: boolean
   listCart: Vinhos[]
   countAdd: number
+  isOpenModal: boolean
+  modal: Vinhos
 }
 
 const initialState: States = {
@@ -20,7 +22,23 @@ const initialState: States = {
   currentP: 0,
   openCart: false,
   listCart: [],
-  countAdd: 1
+  countAdd: 1,
+  isOpenModal: false,
+  modal: {
+    imgs: {
+      img_url: '',
+      country_url: ''
+    },
+    _id: '',
+    id: 0,
+    title: '',
+    price: 0,
+    sold: 0,
+    favorites: 0,
+    category: '',
+    country: '',
+    count: 0
+  }
 }
 
 const stateSlice = createSlice({
@@ -40,6 +58,8 @@ const stateSlice = createSlice({
       state.openCart = !state.openCart
     },
     AddCartList: (state, action: PayloadAction<Vinhos>) => {
+      state.isOpenModal = false
+
       const find = state.listCart.find(
         (item) => item.title === action.payload.title
       )
@@ -106,6 +126,12 @@ const stateSlice = createSlice({
           return item
         })
       }
+    },
+    openModal: (state) => {
+      state.isOpenModal = !state.isOpenModal
+    },
+    cardModal: (state, action: PayloadAction<Vinhos>) => {
+      state.modal = action.payload
     }
   }
 })
@@ -118,7 +144,9 @@ export const {
   AddCartList,
   RmvCartList,
   addCount,
-  rmvCount
+  rmvCount,
+  openModal,
+  cardModal
 } = stateSlice.actions
 
 export default stateSlice.reducer

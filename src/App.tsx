@@ -8,11 +8,13 @@ import Rotas from './rounters'
 import { EstiloGlobal } from './styles/estiloGlobal'
 
 import { store } from './store'
+import Modal from './components/Modal'
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        <Modal />
         <EstiloGlobal />
         <Header />
         <Rotas />

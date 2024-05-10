@@ -25,6 +25,7 @@ export const ListaSugestoes = styled.ul`
     list-style: none;
     margin-bottom: 16px;
     font-size: 14px;
+    cursor: pointer;
 
     span {
       margin-right: 8px;

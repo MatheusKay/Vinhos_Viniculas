@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import vetorLogo from '../../assets/imagens/Logo_Five_leaf_clover.png'
+import vetorLogo from '../../assets/imagens/Logo.svg'
 import vetorCesta from '../../assets/imagens/Vector_Cart.png'
 
 import {
@@ -109,7 +109,6 @@ const Header = () => {
           <div className="container">
             <Logo to="/">
               <img src={vetorLogo} alt="Logo Five leaf clover" />
-              <h1>Five Leaf Clover</h1>
             </Logo>
             <ContainerInfos>
               <ContainerPesquisa>
