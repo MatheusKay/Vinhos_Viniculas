@@ -1,14 +1,14 @@
-import { Botao, Contato, Formulario } from './style'
+import { Button, Contact, Form } from './style'
 
-const FaleConosco = () => {
+const ContactUs = () => {
   return (
-    <Contato className="container">
+    <Contact className="container">
       <h2>Fale Conosco</h2>
       <p>
         Possui uma crítica, sugestão, pergunta ou problema? Preencha o
         formulário abaixo:
       </p>
-      <Formulario>
+      <Form>
         <label htmlFor="">Nome e Sobrenome</label>
         <input type="text" name="" id="" />
         <div className="infos_pessoais">
@@ -23,10 +23,10 @@ const FaleConosco = () => {
         </div>
         <label htmlFor="">Sua Mensagem</label>
         <textarea name="" id="" />
-      </Formulario>
-      <Botao>Enviar</Botao>
-    </Contato>
+      </Form>
+      <Button>Enviar</Button>
+    </Contact>
   )
 }
 
-export default FaleConosco
+export default ContactUs

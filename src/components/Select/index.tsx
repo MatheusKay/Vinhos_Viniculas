@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import vetorUp from '../../assets/imagens/Vector_Up.svg'
 import vetorDown from '../../assets/imagens/Vector_Down.svg'
-import bandBrasil from '../../assets/imagens/ImgPais/brasil.png'
-import bandArgentina from '../../assets/imagens/ImgPais/argentina.png'
-import bandChile from '../../assets/imagens/ImgPais/chile.png'
-import bandFranca from '../../assets/imagens/ImgPais/franca.png'
-import bandtalia from '../../assets/imagens/ImgPais/italia.png'
-import bandPortugal from '../../assets/imagens/ImgPais/portugal.png'
+import countryBrasil from '../../assets/imagens/ImgPais/brasil.png'
+import countryArgentina from '../../assets/imagens/ImgPais/argentina.png'
+import countryChile from '../../assets/imagens/ImgPais/chile.png'
+import countryFranca from '../../assets/imagens/ImgPais/franca.png'
+import countrytalia from '../../assets/imagens/ImgPais/italia.png'
+import countryPortugal from '../../assets/imagens/ImgPais/portugal.png'
 
 import { Selection, SelectionButton, SelectionList } from './style'
 
@@ -22,7 +22,7 @@ type Props = {
 const Select = ({ category }: Props) => {
   const [selectIsOpenWine, setSelectIsOpenWine] = useState(false)
   const [selectIsOpenCountry, setSelectIsOpenCountry] = useState(false)
-  const { filtro, filtroCountry } = useSelector((s: RootReducer) => s.state)
+  const { filter, filterCountry } = useSelector((s: RootReducer) => s.state)
 
   const categoryRef = useRef<HTMLDivElement>(null)
 
@@ -61,9 +61,9 @@ const Select = ({ category }: Props) => {
     >
       <SelectionButton>
         {category == 'wine' ? (
-          <h4>{filtro ? filtro : 'Todos'}</h4>
+          <h4>{filter ? filter : 'Todos'}</h4>
         ) : (
-          <h4>{filtroCountry ? filtroCountry : 'Todos'}</h4>
+          <h4>{filterCountry ? filterCountry : 'Todos'}</h4>
         )}
         <div>
           {selectIsOpenWine || selectIsOpenCountry ? (
@@ -108,27 +108,27 @@ const Select = ({ category }: Props) => {
               </li>
               <li onClick={() => dispatch(filtrarCountry('Argentino'))}>
                 <span>Argentina</span>
-                <img src={bandArgentina} alt="" />
+                <img src={countryArgentina} alt="" />
               </li>
               <li onClick={() => dispatch(filtrarCountry('Brasil'))}>
                 <span>Brasil</span>
-                <img src={bandBrasil} alt="" />
+                <img src={countryBrasil} alt="" />
               </li>
               <li onClick={() => dispatch(filtrarCountry('Chile'))}>
                 <span>Chile</span>
-                <img src={bandChile} alt="" />
+                <img src={countryChile} alt="" />
               </li>
               <li onClick={() => dispatch(filtrarCountry('França'))}>
                 <span>Franca</span>
-                <img src={bandFranca} alt="" />
+                <img src={countryFranca} alt="" />
               </li>
               <li onClick={() => dispatch(filtrarCountry('Itália'))}>
                 <span>Itália</span>
-                <img src={bandtalia} alt="" />
+                <img src={countrytalia} alt="" />
               </li>
               <li onClick={() => dispatch(filtrarCountry('Portugal'))}>
                 <span>Portugal</span>
-                <img src={bandPortugal} alt="" />
+                <img src={countryPortugal} alt="" />
               </li>
             </SelectionList>
           )}

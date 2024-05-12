@@ -1,44 +1,44 @@
 import { useEffect, useState } from 'react'
-
-import { ListaSugestoes, CardSugestoes, Card } from './style'
-
-import { Vinhos } from '../../services/api'
-import { formattedPrice } from '../../utility'
 import { useDispatch } from 'react-redux'
+
+import { ListSuggestions, CardSuggestions, Card } from './style'
+
+import { Wines } from '../../services/api'
+import { formattedPrice } from '../../utility'
 import { cardModal, openModal } from '../../store/reducer'
 
 type Props = {
-  clicado: boolean
-  estaDigitando: string
-  vinhos: Vinhos[]
+  clicked: boolean
+  isTyping: string
+  vinhos: Wines[]
 }
 
-const BarraPesquisa = ({ clicado, vinhos, estaDigitando }: Props) => {
-  const [estaClicado, setEstaClicado] = useState(false)
+const SearchBar = ({ clicked, vinhos, isTyping }: Props) => {
+  const [isClick, setIsClick] = useState(false)
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setEstaClicado(clicado)
-  }, [clicado])
+    setIsClick(clicked)
+  }, [clicked])
 
-  const handleModal = (wine: Vinhos) => {
+  const handleModal = (wine: Wines) => {
     dispatch(openModal())
     dispatch(cardModal(wine))
   }
 
   return (
-    <CardSugestoes>
-      {estaClicado && (
+    <CardSuggestions>
+      {isClick && (
         <>
           <h3>
-            {estaDigitando
-              ? 'Buscando por: ' + `"${estaDigitando}"`
+            {isTyping
+              ? 'Buscando por: ' + `"${isTyping}"`
               : 'Sugestões de Pesquisa'}
           </h3>
           <div>
             {vinhos.length > 0 ? (
-              <ListaSugestoes>
+              <ListSuggestions>
                 {vinhos.map((vinho, index) => (
                   <li key={vinho.id} onClick={() => handleModal(vinho)}>
                     <span>{index + 1}°</span>
@@ -56,19 +56,21 @@ const BarraPesquisa = ({ clicado, vinhos, estaDigitando }: Props) => {
                         alt="Imagem vinho"
                       />
                       <h4>{vinho.title}</h4>
-                      <span>{formattedPrice(vinho.price)}</span>
+                      <span className="text_price">
+                        {formattedPrice(vinho.price)}
+                      </span>
                     </Card>
                   </li>
                 ))}
-              </ListaSugestoes>
+              </ListSuggestions>
             ) : (
               <p>Nenhum Vinho com esse nome foi encontrado</p>
             )}
           </div>
         </>
       )}
-    </CardSugestoes>
+    </CardSuggestions>
   )
 }
 
-export default BarraPesquisa
+export default SearchBar

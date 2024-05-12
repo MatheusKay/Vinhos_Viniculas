@@ -1,33 +1,27 @@
 import { useDispatch } from 'react-redux'
-import { Vinhos } from '../../services/api'
-import {
-  Card,
-  CardImg,
-  CardImgVinho,
-  Titulo,
-  Tags,
-  Preco,
-  AddBotao
-} from './style'
+
+import * as S from './style'
+
+import { Wines } from '../../services/api'
 import { AddCartList } from '../../store/reducer'
 
 type Props = {
-  wine: Vinhos
-  imgVinho: string
-  nacionalidade: string
-  nome: string
-  tipo: string
+  wine: Wines
+  imgWine: string
+  nationality: string
+  name: string
+  category: string
   volume: number
-  preco: string
+  price: string
   margin: string
 }
 
-const CardVinho = ({
-  imgVinho,
-  nacionalidade,
-  nome,
-  preco,
-  tipo,
+const CardWine = ({
+  imgWine,
+  nationality,
+  name,
+  price,
+  category,
   volume,
   margin = '0',
   wine
@@ -35,24 +29,26 @@ const CardVinho = ({
   const dispatch = useDispatch()
 
   return (
-    <Card margin={margin}>
+    <S.Card margin={margin}>
       <div>
-        <CardImgVinho>
-          <img src={imgVinho} alt="Img vinho brasileiro" />
-          <CardImg>
-            <img src={nacionalidade} alt="Bandeira do brasil" />
-          </CardImg>
-        </CardImgVinho>
-        <Tags>
-          <span>{tipo}</span>
+        <S.CardImgWine>
+          <img src={imgWine} alt="Img vinho brasileiro" />
+          <S.CardImg>
+            <img src={nationality} alt="Bandeira do brasil" />
+          </S.CardImg>
+        </S.CardImgWine>
+        <S.Tags>
+          <span>{category}</span>
           <span>{volume === 1 ? volume + 'L' : volume + 'ml'}</span>
-        </Tags>
-        <Titulo>{nome}</Titulo>
-        <Preco>{preco}</Preco>
+        </S.Tags>
+        <S.Title>{name}</S.Title>
+        <S.Price>{price}</S.Price>
       </div>
-      <AddBotao onClick={() => dispatch(AddCartList(wine))}>Comprar</AddBotao>
-    </Card>
+      <S.AddButton onClick={() => dispatch(AddCartList(wine))}>
+        Comprar
+      </S.AddButton>
+    </S.Card>
   )
 }
 
-export default CardVinho
+export default CardWine

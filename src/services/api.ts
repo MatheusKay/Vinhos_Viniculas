@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-export interface Vinhos {
+export interface Wines {
   imgs: {
     img_url: string
     country_url: string
@@ -21,7 +21,7 @@ const api = createApi({
     baseUrl: 'https://api-vinhos.vercel.app'
   }),
   endpoints: (builder) => ({
-    getVinhos: builder.query<Vinhos[], void>({
+    getVinhos: builder.query<Wines[], void>({
       query: () => 'vinhos'
     })
   })

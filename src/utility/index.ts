@@ -1,33 +1,23 @@
-import { Vinhos } from '../services/api'
+import { Wines } from '../services/api'
 
-// export const listVinhos = (lVinhos: Vinhos[]) => {
-//   const newVinhos = lVinhos.slice()
-
-//   for (let i = newVinhos.length - 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * (i + 1))
-//     ;[newVinhos[i], newVinhos[j]] = [newVinhos[j], newVinhos[i]]
-//   }
-//   return newVinhos
-// }
-
-export const filtrarVinhos = (
-  opcao: Vinhos[],
+export const filterWines = (
+  opcao: Wines[],
   filtro: string,
   filtroCountry: string
 ) => {
   if (filtro.length > 0 && filtroCountry.length > 0) {
-    const filtrar = opcao?.filter((vinho) => vinho.category === filtro)
+    const filtrar = opcao?.filter((wine) => wine.category === filtro)
     const filtrarCountry = filtrar.filter(
-      (vinho) => vinho.country === filtroCountry
+      (wine) => wine.country === filtroCountry
     )
 
     return filtrarCountry
   } else if (filtroCountry.length > 0) {
-    const filtrar = opcao?.filter((vinho) => vinho.country === filtroCountry)
+    const filtrar = opcao?.filter((wine) => wine.country === filtroCountry)
 
     return filtrar
   } else if (filtro.length > 0) {
-    const filtrar = opcao?.filter((vinho) => vinho.category === filtro)
+    const filtrar = opcao?.filter((wine) => wine.category === filtro)
 
     return filtrar
   }
@@ -35,24 +25,22 @@ export const filtrarVinhos = (
   return opcao
 }
 
-export const maisVendidos = (lVinhos: Vinhos[]) => {
-  const somaVendas = lVinhos.reduce((acc, vinho) => acc + vinho.sold, 0)
+export const bestSellers = (lwines: Wines[]) => {
+  const somaVendas = lwines.reduce((acc, wine) => acc + wine.sold, 0)
 
-  const mediaVendas = somaVendas / lVinhos.length
+  const mediaVendas = somaVendas / lwines.length
 
-  const filtroVendas = lVinhos.filter((vinho) => vinho.sold > mediaVendas)
+  const filtroVendas = lwines.filter((wine) => wine.sold > mediaVendas)
 
   return filtroVendas
 }
 
-export const destaques = (lVinhos: Vinhos[]) => {
-  const somaFavoritos = lVinhos.reduce((acc, vinho) => acc + vinho.favorites, 0)
+export const wineHighlights = (lwines: Wines[]) => {
+  const somaFavoritos = lwines.reduce((acc, wine) => acc + wine.favorites, 0)
 
-  const mediaFavoritos = somaFavoritos / lVinhos.length
+  const mediaFavoritos = somaFavoritos / lwines.length
 
-  const filtroVendas = lVinhos.filter(
-    (vinho) => vinho.favorites > mediaFavoritos
-  )
+  const filtroVendas = lwines.filter((wine) => wine.favorites > mediaFavoritos)
 
   return filtroVendas
 }
@@ -64,7 +52,7 @@ export const formattedPrice = (price: number) => {
   }).format(price)
 }
 
-export const getTotalPrice = (items: Vinhos[]) => {
+export const getTotalPrice = (items: Wines[]) => {
   return items.reduce((accumulator, currentItem) => {
     if (currentItem.price) {
       return (accumulator += currentItem.price)

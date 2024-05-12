@@ -1,24 +1,24 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Vinhos } from '../../services/api'
+import { Wines } from '../../services/api'
 
-export interface WinesWithCount extends Vinhos {
+export interface WinesWithCount extends Wines {
   count: number
 }
 
 type States = {
-  filtro: string
-  filtroCountry: string
+  filter: string
+  filterCountry: string
   currentP: number
   openCart: boolean
-  listCart: Vinhos[]
+  listCart: Wines[]
   countAdd: number
   isOpenModal: boolean
-  modal: Vinhos
+  modal: Wines
 }
 
 const initialState: States = {
-  filtro: '',
-  filtroCountry: '',
+  filter: '',
+  filterCountry: '',
   currentP: 0,
   openCart: false,
   listCart: [],
@@ -46,10 +46,10 @@ const stateSlice = createSlice({
   initialState,
   reducers: {
     filtrar: (state, action: PayloadAction<string>) => {
-      state.filtro = action.payload
+      state.filter = action.payload
     },
     filtrarCountry: (state, action: PayloadAction<string>) => {
-      state.filtroCountry = action.payload
+      state.filterCountry = action.payload
     },
     currentP: (state, action: PayloadAction<number>) => {
       state.currentP = action.payload
@@ -57,7 +57,7 @@ const stateSlice = createSlice({
     CartOpen: (state) => {
       state.openCart = !state.openCart
     },
-    AddCartList: (state, action: PayloadAction<Vinhos>) => {
+    AddCartList: (state, action: PayloadAction<Wines>) => {
       state.isOpenModal = false
 
       const find = state.listCart.find(
@@ -130,7 +130,7 @@ const stateSlice = createSlice({
     openModal: (state) => {
       state.isOpenModal = !state.isOpenModal
     },
-    cardModal: (state, action: PayloadAction<Vinhos>) => {
+    cardModal: (state, action: PayloadAction<Wines>) => {
       state.modal = action.payload
     }
   }

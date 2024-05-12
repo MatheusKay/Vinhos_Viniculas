@@ -5,10 +5,10 @@ type Props = {
   altImg: string
 }
 
-const PosterVinhos = ({ linkImg, altImg }: Props) => (
+const PosterWines = ({ linkImg, altImg }: Props) => (
   <>
     <Poster src={linkImg} alt={altImg} />
   </>
 )
 
-export default PosterVinhos
+export default PosterWines

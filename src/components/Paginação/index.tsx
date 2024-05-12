@@ -1,4 +1,4 @@
-import { Pagination, Botao } from './style'
+import { Pagination, Button } from './style'
 
 type Props = {
   onClick: (page: number) => void
@@ -6,7 +6,7 @@ type Props = {
   totalPages: number
 }
 
-const Paginacao = ({ currentPage, onClick, totalPages }: Props) => {
+const Pages = ({ currentPage, onClick, totalPages }: Props) => {
   const buttonsToShow = 9
   const fistButton = Math.max(1, currentPage - Math.floor(buttonsToShow / 2))
   const lastButton = Math.min(totalPages, fistButton + buttonsToShow - 1)
@@ -19,14 +19,14 @@ const Paginacao = ({ currentPage, onClick, totalPages }: Props) => {
 
   for (let i = fistButton; i <= lastButton - 1; i++) {
     buttons.push(
-      <Botao
+      <Button
         href="#nossos_produtos"
         key={i}
         onClick={() => heandleClick(i)}
         className={i === currentPage ? 'pagination__button--active' : ''}
       >
         {i < 10 ? '0' + i : i}
-      </Botao>
+      </Button>
     )
   }
 
@@ -34,7 +34,7 @@ const Paginacao = ({ currentPage, onClick, totalPages }: Props) => {
     <Pagination>
       {buttons}
       {currentPage < totalPages - 1 && <span>. . .</span>}
-      <Botao
+      <Button
         href="#nossos_produtos"
         onClick={() => heandleClick(totalPages)}
         className={
@@ -42,9 +42,9 @@ const Paginacao = ({ currentPage, onClick, totalPages }: Props) => {
         }
       >
         {totalPages < 10 ? '0' + totalPages : totalPages}
-      </Botao>
+      </Button>
     </Pagination>
   )
 }
 
-export default Paginacao
+export default Pages

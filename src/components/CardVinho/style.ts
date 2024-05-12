@@ -18,7 +18,7 @@ export const Card = styled.div<Props>`
   }
 `
 
-export const CardImgVinho = styled.div`
+export const CardImgWine = styled.div`
   display: flex;
   justify-content: center;
 
@@ -39,7 +39,7 @@ export const CardImg = styled.div`
   }
 `
 
-export const Titulo = styled.h3`
+export const Title = styled.h3`
   min-height: 75px;
   margin-bottom: 36px;
   text-align: center;
@@ -63,14 +63,14 @@ export const Tags = styled.div`
   }
 `
 
-export const Preco = styled.p`
+export const Price = styled.p`
   text-align: center;
   font-weight: bold;
   font-size: 18px;
   color: #518c16;
 `
 
-export const AddBotao = styled.button`
+export const AddButton = styled.button`
   width: 100%;
   padding: 17px 86px;
   border: none;

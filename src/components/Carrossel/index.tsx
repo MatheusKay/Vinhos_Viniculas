@@ -4,13 +4,7 @@ import slide3 from '../../assets/imagens/Carousel_3.png'
 
 import vetorDestaque from '../../assets/imagens/btn_destaques.png'
 
-import {
-  Slide,
-  BotaoSlide,
-  SliderItem,
-  SliderContainer,
-  BotaoLink
-} from './style'
+import * as S from './style'
 
 const Carrossel = () => {
   const settings = {
@@ -23,34 +17,37 @@ const Carrossel = () => {
   }
 
   return (
-    <SliderContainer {...settings}>
-      <Slide>
+    <S.SliderContainer {...settings}>
+      <S.Slide>
         <img src={slide1} alt="" />
-        <SliderItem>
-          <h2>Destaques e Mais Vendidos</h2>
+        <S.SliderItem>
+          <h2>wineHighlights e Mais Vendidos</h2>
           <p>Veja abaixo os maiores vinhos deste mês</p>
-          <BotaoSlide>
-            <img src={vetorDestaque} alt="Botão para ver Vinhos em destaques" />
-          </BotaoSlide>
-        </SliderItem>
-      </Slide>
-      <Slide>
+          <S.SlideButton>
+            <img
+              src={vetorDestaque}
+              alt="Botão para ver Vinhos em wineHighlights"
+            />
+          </S.SlideButton>
+        </S.SliderItem>
+      </S.Slide>
+      <S.Slide>
         <img src={slide2} alt="" />
-        <SliderItem>
+        <S.SliderItem>
           <h2>Conheça as vínicolas do Brasil</h2>
           <p>Saiba de onde vem os melhores vinhos brasileiros</p>
-          <BotaoLink>Saiba Mais</BotaoLink>
-        </SliderItem>
-      </Slide>
-      <Slide>
+          <S.LinkButton>Saiba Mais</S.LinkButton>
+        </S.SliderItem>
+      </S.Slide>
+      <S.Slide>
         <img src={slide3} alt="" />
-        <SliderItem>
-          <h2>Destaques e Mais Vendidos</h2>
+        <S.SliderItem>
+          <h2>wineHighlights e Mais Vendidos</h2>
           <p>Veja abaixo os maiores vinhos deste mês</p>
-          <BotaoLink>Saiba Mais</BotaoLink>
-        </SliderItem>
-      </Slide>
-    </SliderContainer>
+          <S.LinkButton>Saiba Mais</S.LinkButton>
+        </S.SliderItem>
+      </S.Slide>
+    </S.SliderContainer>
   )
 }
 

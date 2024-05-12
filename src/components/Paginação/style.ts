@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { palette } from '../../styles/estiloGlobal'
+
 export const Pagination = styled.div`
   margin-top: 64px;
   display: flex;
@@ -10,19 +12,19 @@ export const Pagination = styled.div`
     margin-right: 12px;
     font-size: 24px;
     font-weight: 600;
-    color: #9a9a9a;
+    color: ${palette.grayColor};
   }
 `
 
-export const Botao = styled.a`
+export const Button = styled.a`
   padding: 8px;
   margin-right: 12px;
   background-color: transparent;
   font-size: 16px;
   font-weight: 600;
-  border: 1px solid #9a9a9a;
+  border: 1px solid ${palette.grayColor};
   border-radius: 8px;
   cursor: pointer;
   text-decoration: none;
-  color: #9a9a9a;
+  color: ${palette.grayColor};
 `

@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
-export const CardSugestoes = styled.div`
+import { palette } from '../../styles/estiloGlobal'
+
+export const CardSuggestions = styled.div`
   padding: 8px;
-  color: #dc143c;
+  color: ${palette.primary};
 
   h4 {
     width: 300px;
-    text-align: center;
   }
 
   p {
@@ -15,7 +16,7 @@ export const CardSugestoes = styled.div`
   }
 `
 
-export const ListaSugestoes = styled.ul`
+export const ListSuggestions = styled.ul`
   margin-top: 24px;
 
   li {
@@ -27,9 +28,11 @@ export const ListaSugestoes = styled.ul`
     font-size: 14px;
     cursor: pointer;
 
-    span {
-      margin-right: 8px;
+    .text_price {
+      text-align: right;
       font-size: 12px;
+      font-weight: 500;
+      color: ${palette.secondary};
     }
   }
 `

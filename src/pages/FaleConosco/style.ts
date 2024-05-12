@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { palette } from '../../styles/estiloGlobal'
 
-export const Contato = styled.div`
+export const Contact = styled.div`
   width: 100%;
   padding-top: 72px;
   display: flex;
@@ -22,7 +23,7 @@ export const Contato = styled.div`
   }
 `
 
-export const Formulario = styled.form`
+export const Form = styled.form`
   width: 50%;
 
   label {
@@ -38,7 +39,7 @@ export const Formulario = styled.form`
     padding: 6px;
     margin-bottom: 20px;
     border-radius: 8px;
-    border: 1px solid #000;
+    border: 1px solid ${palette.blackColor};
     font-size: 14px;
   }
 
@@ -58,13 +59,13 @@ export const Formulario = styled.form`
   }
 `
 
-export const Botao = styled.button`
+export const Button = styled.button`
   padding: 10px 56px;
   margin-top: 20px;
   border: none;
   border-radius: 8px;
-  background-color: #009b3a;
-  color: #fff;
+  background-color: ${palette.secondary};
+  color: ${palette.neutralColor};
   font-size: 20px;
   font-weight: 600;
   cursor: pointer;

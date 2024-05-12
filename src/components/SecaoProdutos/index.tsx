@@ -1,62 +1,63 @@
 import { useState } from 'react'
 
-import { Vinhos } from '../../services/api'
+import { Wines } from '../../services/api'
 
-import { ListaVinhos, Titulo, Secao } from './style'
+import { ListWines, Title, Section } from './style'
 
-import CardVinho from '../CardVinho'
-import Filtros from '../Filtros'
-import Paginacao from '../Paginação'
+import CardWine from '../CardVinho'
+import Filter from '../Filtros'
+import Pages from '../Paginação'
+
 import { formattedPrice } from '../../utility'
 
 export type Props = {
-  vinhos: Vinhos[]
-  nomeSecao: string
+  wines: Wines[]
+  titleSection: string
 }
 
-const SecaoProdutos = ({ vinhos, nomeSecao }: Props) => {
+const SectionProducts = ({ wines, titleSection }: Props) => {
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 12
 
-  const totalPages = Math.ceil(vinhos.length / itemsPerPage)
+  const totalPages = Math.ceil(wines.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
-  const currentItems = vinhos.slice(startIndex, endIndex)
+  const currentItems = wines.slice(startIndex, endIndex)
 
   const goToPage = (page: number) => {
     setCurrentPage(page)
   }
 
   return (
-    <Secao id="nossos_produtos">
+    <Section id="nossos_produtos">
       <div className="container">
-        <Titulo>{nomeSecao}</Titulo>
-        <Filtros />
+        <Title>{titleSection}</Title>
+        <Filter />
         <div>
-          <ListaVinhos>
-            {currentItems.map((vinho) => (
-              <CardVinho
-                key={vinho.id}
-                imgVinho={vinho.imgs.img_url}
-                nacionalidade={vinho.imgs.country_url}
-                nome={vinho.title}
-                preco={formattedPrice(vinho.price)}
-                tipo={vinho.category}
-                volume={vinho.price}
+          <ListWines>
+            {currentItems.map((wine) => (
+              <CardWine
+                key={wine.id}
+                imgWine={wine.imgs.img_url}
+                nationality={wine.imgs.country_url}
+                name={wine.title}
+                price={formattedPrice(wine.price)}
+                category={wine.category}
+                volume={wine.price}
                 margin="0"
-                wine={vinho}
+                wine={wine}
               />
             ))}
-          </ListaVinhos>
-          <Paginacao
+          </ListWines>
+          <Pages
             currentPage={currentPage}
             totalPages={totalPages}
             onClick={goToPage}
           />
         </div>
       </div>
-    </Secao>
+    </Section>
   )
 }
 
-export default SecaoProdutos
+export default SectionProducts

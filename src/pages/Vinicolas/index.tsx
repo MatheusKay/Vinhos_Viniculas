@@ -1,4 +1,4 @@
-import Vinicola from '../../components/Vinicola'
+import Winery from '../../components/Vinicola'
 
 import abreuGarcia from '../../assets/imagens/ImgVinicolas/vinicolas-no-brasil-abreu-garcia.jpg'
 import lidioCarraro from '../../assets/imagens/ImgVinicolas/vinicolas-no-brasil-lidio-carraro.jpg'
@@ -7,7 +7,7 @@ import villaFrancioni from '../../assets/imagens/ImgVinicolas/vinicolas-no-brasi
 import posterVinicola from '../../assets/imagens/Poster_vinicola.png'
 import logo from '../../assets/imagens/Logo_Five_leaf_clover.svg'
 
-import { ContainerImg, SecaoInfos, Poster, Divisor } from './style'
+import { ContainerImg, SectionInfos, Poster, Divider } from './style'
 
 type MockVinicolas = {
   id: number
@@ -78,7 +78,7 @@ const Vinicolas = () => (
         <img src={logo} alt="" />
       </div>
     </Poster>
-    <SecaoInfos className="container">
+    <SectionInfos className="container">
       <div>
         <h2>Início</h2>
         <p>
@@ -88,13 +88,13 @@ const Vinicolas = () => (
           bebidas favoritas funciona, visitar paisagens de tirar o fôlego e
           muito mais!
         </p>
-        <Divisor>
+        <Divider>
           <span className="ball_small"></span>
           <span className="ball_medium"></span>
           <span className="ball_big"></span>
           <span className="ball_medium"></span>
           <span className="ball_small"></span>
-        </Divisor>
+        </Divider>
         <p>
           E não são apenas as regiões vitiviníferas estrangeiras que têm muito a
           oferecer em termos de experiências enoturísticas. Inúmeras vinícolas
@@ -109,18 +109,18 @@ const Vinicolas = () => (
           </div>
         ))}
       </ContainerImg>
-    </SecaoInfos>
+    </SectionInfos>
     <section>
       {mockVinicolas.map((vinicola) => (
-        <Vinicola
+        <Winery
           key={vinicola.id}
           linkImg={vinicola.linkImg}
           altImg={vinicola.altImg}
-          titulo={vinicola.titulo}
-          descVinicola={vinicola.descricao}
-          estaInvertido={vinicola.estaInvertida}
+          title={vinicola.titulo}
+          wineryDesc={vinicola.descricao}
+          isInverted={vinicola.estaInvertida}
           id={vinicola.id}
-          localizacao={vinicola.localizacao}
+          location={vinicola.localizacao}
           site={vinicola.site}
         />
       ))}

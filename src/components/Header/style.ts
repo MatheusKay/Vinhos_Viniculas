@@ -2,11 +2,12 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 import backHeader from '../../assets/imagens/background_header.png'
+import { palette } from '../../styles/estiloGlobal'
 
 export const HeaderContainer = styled.header`
   padding: 24px;
-  background-color: #dc143c;
-  color: #fff;
+  background-color: ${palette.primary};
+  color: ${palette.neutralColor};
   background-image: url(${backHeader});
   background-size: cover;
   background-repeat: no-repeat;
@@ -34,7 +35,7 @@ export const Logo = styled(Link)`
   h1 {
     width: 50px;
     font-size: 24px;
-    color: #fff;
+    color: ${palette.neutralColor};
   }
 `
 
@@ -46,13 +47,13 @@ export const ContainerInfos = styled.div`
   row-gap: 36px;
 `
 
-export const ContainerPesquisa = styled.div`
+export const SearchContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `
 
-export const ContainerPesquisaInput = styled.div`
+export const SearchContainerInput = styled.div`
   width: 70%;
   position: relative;
 
@@ -76,7 +77,7 @@ export const ContainerPesquisaInput = styled.div`
   }
 `
 
-export const ContainerCarrinho = styled.div`
+export const CartContainer = styled.div`
   padding: 8px 16px;
   display: flex;
   align-items: end;

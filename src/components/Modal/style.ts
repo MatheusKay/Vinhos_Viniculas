@@ -25,74 +25,75 @@ export const CardModal = styled.section`
   .img_wine {
     height: 280px;
   }
+`
 
-  .close_modal {
-    position: absolute;
-    top: -48px;
-    right: 0;
+export const CloseModal = styled.div`
+  position: absolute;
+  top: -48px;
+  right: 0;
 
-    button {
-      padding: 8px;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      background-color: transparent;
-      cursor: pointer;
+  button {
+    padding: 8px;
+    display: flex;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+
+    svg {
+      fill: #ccc;
+    }
+
+    &:hover {
+      background-color: #ccc;
 
       svg {
-        fill: #ccc;
-      }
-
-      &:hover {
-        background-color: #ccc;
-
-        svg {
-          fill: #000;
-        }
+        fill: #000;
       }
     }
   }
+`
 
-  .infos {
+export const Infos = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h2 {
+    max-width: 400px;
     width: 100%;
+  }
+
+  .infos_card {
+    height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    h2 {
-      max-width: 400px;
-      width: 100%;
+    .infos_header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
     }
 
-    .infos_card {
-      height: 60%;
+    .infos_tags {
+      margin-bottom: 16px;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      column-gap: 12px;
 
-      .infos_header {
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
+      span {
+        padding: 8px;
+        text-align: center;
+        font-size: 14px;
+        background-color: #d9d9d9;
       }
 
-      .infos_tags {
-        margin-bottom: 16px;
-        display: flex;
-        align-items: center;
-        column-gap: 12px;
-
-        span {
-          padding: 8px;
-          text-align: center;
-          font-size: 14px;
-          background-color: #d9d9d9;
-        }
-
-        img {
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-        }
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
       }
     }
 
@@ -104,10 +105,9 @@ export const CardModal = styled.section`
         fill: #000;
       }
     }
-  }
 `
 
-export const Botao = styled.div`
+export const Button = styled.div`
   width: 100%;
   display: flex;
   justify-content: end;

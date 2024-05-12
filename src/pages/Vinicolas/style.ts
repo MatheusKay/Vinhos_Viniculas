@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { palette } from '../../styles/estiloGlobal'
 
-export const SecaoInfos = styled.section`
+export const SectionInfos = styled.section`
   margin-bottom: 15%;
 
   h2 {
@@ -8,7 +9,7 @@ export const SecaoInfos = styled.section`
     text-align: center;
     font-size: 32px;
     letter-spacing: 0.32em;
-    color: #303030;s
+    color: #303030;
   }
 
   p {
@@ -22,7 +23,7 @@ export const SecaoInfos = styled.section`
 
 export const Poster = styled.section`
   position: relative;
-  color: #fff;
+  color: ${palette.neutralColor};
 
   > img {
     width: 100%;
@@ -67,7 +68,6 @@ export const ContainerImg = styled.div`
     height: 360px;
     margin: 0 auto;
     object-fit: cover;
-    box-shadow: 0px 8px 36px 0px;
     border-radius: 16px;
   }
 
@@ -77,7 +77,7 @@ export const ContainerImg = styled.div`
   }
 `
 
-export const Divisor = styled.div`
+export const Divider = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,20 +87,20 @@ export const Divisor = styled.div`
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #6b0d2f;
+    background-color: ${palette.tertiary};
   }
 
   .ball_medium {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #dc143c;
+    background-color: ${palette.primary};
   }
 
   .ball_big {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background-color: #6b0d2f;
+    background-color: ${palette.tertiary};
   }
 `

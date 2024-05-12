@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 import backHeader from '../../assets/imagens/background_header.png'
 
+import { palette } from '../../styles/estiloGlobal'
+
 export const Cart = styled.section`
   width: 100%;
   height: 100%;
@@ -26,54 +28,18 @@ export const AsideCart = styled.aside`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: ${palette.neutralColor};
   background-image: url(${backHeader});
   background-size: cover;
   background-repeat: round;
   background-blend-mode: multiply;
-
-  .header_cart {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .header_cart_name {
-      display: flex;
-      align-items: center;
-      column-gap: 8px;
-    }
-
-    h3 {
-      font-size: 16px;
-
-      svg {
-        fill: #000;
-      }
-    }
-
-    button {
-      padding: 8px;
-      border: 2px solid #000;
-      border-radius: 8px;
-      background-color: transparent;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #000;
-
-        svg {
-          fill: #fff;
-        }
-      }
-    }
-  }
 
   .text_subTitle {
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
 
     span {
-      color: #dc143c;
+      color: ${palette.primary};
     }
   }
 
@@ -83,12 +49,49 @@ export const AsideCart = styled.aside`
   }
 `
 
+export const HeaderCart = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header_cart_name {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+  }
+
+  h3 {
+    font-size: 16px;
+
+    svg {
+      fill: ${palette.blackColor};
+    }
+  }
+
+  button {
+    padding: 8px;
+    display: flex;
+    border: 2px solid ${palette.blackColor};
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      background-color: ${palette.blackColor};
+
+      svg {
+        fill: ${palette.neutralColor};
+      }
+    }
+  }
+`
+
 export const CardCart = styled.li`
   padding: 24px;
   margin-bottom: 16px;
   display: flex;
   column-gap: 32px;
-  border: 2px solid #000;
+  border: 2px solid ${palette.blackColor};
   border-radius: 16px;
 
   img {
@@ -104,87 +107,87 @@ export const CardCart = styled.li`
     font-size: 14px;
   }
 
-  .card_tags {
-    margin-bottom: 16px;
-    display: flex;
-    column-gap: 12px;
-
-    span {
-      padding: 6px;
-      text-align: center;
-      font-size: 12px;
-      background-color: #d9d9d9;
-    }
-
-    img {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-    }
-  }
-
   h3 {
     margin-bottom: 8px;
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
   }
+`
 
-  .card_footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+export const CardTags = styled.div`
+  margin-bottom: 16px;
+  display: flex;
+  column-gap: 12px;
 
-    > button {
-      padding: 8px;
-      background-color: transparent;
-      border: 1px solid #dc143c;
-      border-radius: 8px;
-      cursor: pointer;
+  span {
+    padding: 6px;
+    text-align: center;
+    font-size: 12px;
+    background-color: ${palette.grayColor};
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+`
+
+export const CardFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  > button {
+    padding: 8px;
+    background-color: transparent;
+    border: 1px solid ${palette.primary};
+    border-radius: 8px;
+    cursor: pointer;
+
+    svg {
+      fill: ${palette.primary};
+    }
+
+    &:hover {
+      background-color: ${palette.primary};
 
       svg {
-        fill: #dc143c;
-      }
-
-      &:hover {
-        background-color: #dc143c;
-
-        svg {
-          fill: #fff;
-        }
+        fill: ${palette.neutralColor};
       }
     }
   }
+`
 
-  .card_select {
-    border: 1px solid #000;
-    border-radius: 6px;
+export const CardSelect = styled.div`
+  border: 1px solid ${palette.blackColor};
+  border-radius: 6px;
 
-    .card_select_left {
-      border-right: 1px solid #000;
+  .card_select_left {
+    border-right: 1px solid ${palette.blackColor};
+  }
+
+  .card_select_right {
+    border-left: 1px solid ${palette.blackColor};
+  }
+
+  button {
+    padding: 8px;
+    color: ${palette.blackColor};
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: ${palette.blackColor};
+      color: ${palette.grayColor};
     }
+  }
 
-    .card_select_right {
-      border-left: 1px solid #000;
-    }
-
-    button {
-      padding: 8px;
-      color: #000;
-      background-color: transparent;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #000;
-        color: #d9d9d9;
-      }
-    }
-
-    span {
-      padding: 8px 12px;
-      font-size: 16px;
-    }
+  span {
+    padding: 8px 12px;
+    font-size: 16px;
   }
 `
 
@@ -200,26 +203,24 @@ export const AsideCartFooter = styled.div`
     font-weight: 600;
 
     span {
-      color: #518c16;
+      color: ${palette.secondary};
     }
   }
+`
 
-  .btn_compra {
-    width: 100%;
-    padding: 8px 16px;
-    margin-top: 24px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    background-color: #dc143c;
-    cursor: pointer;
+export const BtnBuy = styled.button`
+  width: 100%;
+  padding: 8px 16px;
+  margin-top: 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: ${palette.neutralColor};
+  background-color: ${palette.primary};
+  cursor: pointer;
 
-    &:hover {
-      color: #dc143c;
-      background-color: #fff;
-      border-color: #dc143c;
-    }
+  &:hover {
+    background-color: ${palette.tertiary};
   }
 `

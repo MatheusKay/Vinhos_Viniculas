@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
-export const Secao = styled.section`
+export const Section = styled.section`
   color: black;
 `
 
-export const Titulo = styled.h2`
+export const Title = styled.h2`
   margin: 56px 0;
   padding: 16px;
   text-align: center;
+  text-transform: uppercase;
   font-size: 32px;
   letter-spacing: 0.15em;
 `
@@ -28,7 +29,7 @@ export const Links = styled.ul`
   }
 `
 
-export const ListaVinhos = styled.div`
+export const ListWines = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 16px;

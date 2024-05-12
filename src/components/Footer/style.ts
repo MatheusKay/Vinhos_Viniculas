@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import backfooter from '../../assets/imagens/background_footer.png'
 
-export const FooterColor = styled.div`
+export const FooterBack = styled.div`
   padding: 48px;
   margin-top: 128px;
   background-color: #6b0d2f;
@@ -24,7 +24,7 @@ export const FooterContainer = styled.div`
   column-gap: 80px;
 `
 
-export const Titulo = styled.h4`
+export const Title = styled.h4`
   margin-bottom: 24px;
   font-size: 24px;
 `
@@ -37,7 +37,7 @@ export const FooterInfo = styled.section`
   border-right: 2px solid #fff;
 
   img {
-    width: 96px;
+    width: 200px;
   }
 `
 
@@ -59,12 +59,12 @@ export const Links = styled.ul`
   }
 `
 
-export const DescLoja = styled.p`
-  font-size: 12px;
+export const StoreDescri = styled.p`
+  font-size: 14px;
   line-height: 22px;
 `
 
-export const LinksSociais = styled.div`
+export const SocialMidias = styled.div`
   margin-top: 40px;
 
   ul {
@@ -76,6 +76,14 @@ export const LinksSociais = styled.div`
 
       a {
         text-decoration: none;
+
+        svg {
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.3);
+          }
+        }
       }
     }
   }

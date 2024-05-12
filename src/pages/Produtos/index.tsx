@@ -1,27 +1,27 @@
 import { useSelector } from 'react-redux'
 
-import SecaoProdutos from '../../components/SecaoProdutos'
+import SectionProducts from '../../components/SecaoProdutos'
 
 import { useGetVinhosQuery } from '../../services/api'
 
 import { RootReducer } from '../../store'
-import { filtrarVinhos } from '../../utility'
+import { filterWines } from '../../utility'
 
-const Produtos = () => {
-  const { data: vinhos } = useGetVinhosQuery()
-  const { filtro, filtroCountry } = useSelector(
+const Products = () => {
+  const { data: wines } = useGetVinhosQuery()
+  const { filter, filterCountry } = useSelector(
     (state: RootReducer) => state.state
   )
 
-  if (vinhos) {
-    const listExibida = vinhos
-    const vinhosFiltro = filtrarVinhos(listExibida, filtro, filtroCountry)
+  if (wines) {
+    const displayedList = wines
+    const winesFilter = filterWines(displayedList, filter, filterCountry)
 
     return (
       <>
-        <SecaoProdutos
-          nomeSecao="Nossos Produtos"
-          vinhos={vinhosFiltro ? vinhosFiltro : listExibida}
+        <SectionProducts
+          titleSection="Nossos Produtos"
+          wines={winesFilter ? winesFilter : displayedList}
         />
       </>
     )
@@ -30,4 +30,4 @@ const Produtos = () => {
   return <div>Is Looading</div>
 }
 
-export default Produtos
+export default Products

@@ -82,7 +82,7 @@ export const SliderItem = styled.div`
   }
 `
 
-export const BotaoSlide = styled.a`
+export const SlideButton = styled.a`
   width: 60px;
   height: 60px;
   display: flex;
@@ -98,7 +98,7 @@ export const BotaoSlide = styled.a`
   }
 `
 
-export const BotaoLink = styled.button`
+export const LinkButton = styled.button`
   width: 296px;
   padding: 16px;
   font-size: 16px;

@@ -2,7 +2,7 @@ import { FiltrosContainer, FiltrosSelects } from './style'
 
 import Select from '../Select'
 
-const Filtros = () => {
+const Filter = () => {
   return (
     <FiltrosContainer>
       <h3>Filtros</h3>
@@ -20,4 +20,4 @@ const Filtros = () => {
   )
 }
 
-export default Filtros
+export default Filter

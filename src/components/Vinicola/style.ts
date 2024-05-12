@@ -1,15 +1,16 @@
 import styled from 'styled-components'
+import { palette } from '../../styles/estiloGlobal'
 
 type Props = {
-  estaInvertido: boolean
+  isInverted: boolean
 }
 
-export const ContainerVinicola = styled.div<Props>`
+export const ContainerWinery = styled.div<Props>`
   margin-bottom: 15%;
   margin-top: 15%;
   display: flex;
   justify-content: space-between;
-  flex-direction: ${(props) => (props.estaInvertido ? 'row-reverse' : 'row')};
+  flex-direction: ${(props) => (props.isInverted ? 'row-reverse' : 'row')};
   gap: 24px;
 
   img {
@@ -47,25 +48,25 @@ export const ContainerInfos = styled.div<Props>`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: ${(props) => (props.estaInvertido ? 'row-reverse' : 'row')};
+    flex-direction: ${(props) => (props.isInverted ? 'row-reverse' : 'row')};
 
     span {
       padding: 12px;
       font-size: 24px;
       font-weight: 600;
-      background-color: #dc143c;
+      background-color: ${palette.primary};
       border-radius: 8px;
-      color: #fff;
+      color: ${palette.neutralColor};
     }
   }
 `
 
-export const Titulo = styled.h3`
+export const Title = styled.h3`
   margin-bottom: 8px;
   font-size: 24px;
 `
 
-export const InfosVinicola = styled.div<Props>`
+export const WineryInfos = styled.div<Props>`
   display: flex;
   flex-direction: column;
   row-gap: 24px;
@@ -73,14 +74,14 @@ export const InfosVinicola = styled.div<Props>`
   div {
     display: flex;
     align-items: center;
-    flex-direction: ${(props) => (props.estaInvertido ? 'row' : 'row-reverse')};
+    flex-direction: ${(props) => (props.isInverted ? 'row' : 'row-reverse')};
     column-gap: 20px;
 
     span {
       width: 50px;
       height: 45px;
       padding: 8px 12px;
-      border: 1px solid #dc143c;
+      border: 1px solid ${palette.primary};
       border-radius: 8px;
 
       img {

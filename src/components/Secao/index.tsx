@@ -3,17 +3,17 @@ import 'slick-carousel/slick/slick-theme.css'
 
 import CardVinho from '../CardVinho'
 
-import { SliderContain, Titulo } from './style'
+import { SliderContain, Title } from './style'
 
-import { Vinhos } from '../../services/api'
+import { Wines } from '../../services/api'
 import { formattedPrice } from '../../utility'
 
 type Props = {
-  titulo: string
-  vinhos: Vinhos[]
+  title: string
+  wines: Wines[]
 }
 
-const Secao = ({ titulo, vinhos }: Props) => {
+const Section = ({ title, wines }: Props) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -24,19 +24,19 @@ const Secao = ({ titulo, vinhos }: Props) => {
 
   return (
     <section className="container">
-      <Titulo>{titulo}</Titulo>
+      <Title>{title}</Title>
       <SliderContain {...settings}>
-        {vinhos.map((vinho) => (
+        {wines.map((wine) => (
           <CardVinho
-            key={vinho.id}
-            imgVinho={vinho.imgs.img_url}
-            nacionalidade={vinho.imgs.country_url}
-            nome={vinho.title}
-            preco={formattedPrice(vinho.price)}
-            tipo={vinho.category}
-            volume={vinho.price}
+            key={wine.id}
+            imgWine={wine.imgs.img_url}
+            nationality={wine.imgs.country_url}
+            name={wine.title}
+            price={formattedPrice(wine.price)}
+            category={wine.category}
+            volume={wine.price}
             margin="16px"
-            wine={vinho}
+            wine={wine}
           />
         ))}
       </SliderContain>
@@ -44,4 +44,4 @@ const Secao = ({ titulo, vinhos }: Props) => {
   )
 }
 
-export default Secao
+export default Section

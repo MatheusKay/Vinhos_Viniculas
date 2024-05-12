@@ -1,5 +1,14 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
+export const palette = {
+  primary: '#dc143c',
+  secondary: '#518c16',
+  tertiary: '#6b0d2f',
+  neutralColor: '#fff',
+  grayColor: '#9a9a9a',
+  blackColor: '#000'
+}
+
 export const EstiloGlobal = createGlobalStyle`
   * {
     margin: 0;
@@ -8,7 +17,6 @@ export const EstiloGlobal = createGlobalStyle`
   }
 
   body {
-    background-color: #EEE;
     font-family: "Montserrat", sans-serif;
 
     h1,
@@ -21,9 +29,9 @@ export const EstiloGlobal = createGlobalStyle`
     }
 
     .pagination__button--active {
-      background-color: #518C16;
-      border-color: #518C16;
-      color: #fff;
+      background-color: ${palette.secondary};
+      border-color: ${palette.secondary};
+      color: ${palette.neutralColor};
     }
   }
 

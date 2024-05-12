@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 import vetorDestaque from '../../assets/imagens/btn_destaques.png'
 
+import { palette } from '../../styles/estiloGlobal'
+
 export const SliderContain = styled(Slider)`
   .slick-list {
     width: 95%;
@@ -19,7 +21,7 @@ export const SliderContain = styled(Slider)`
     align-items: center;
     border: none;
     border-radius: 50%;
-    background-color: #dc143c;
+    background-color: ${palette.primary};
   }
 
   .slick-next {
@@ -43,10 +45,11 @@ export const SliderContain = styled(Slider)`
   }
 `
 
-export const Titulo = styled.h2`
+export const Title = styled.h2`
   margin: 80px 0;
   text-align: center;
   font-size: 32px;
   font-weight: 600;
+  text-transform: uppercase;
   letter-spacing: 0.25em;
 `

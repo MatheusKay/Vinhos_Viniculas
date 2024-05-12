@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
+import { palette } from '../../styles/estiloGlobal'
+
 export const Selection = styled.div`
+  margin-top: 16px;
   position: relative;
   cursor: pointer;
 `
@@ -12,9 +15,8 @@ export const SelectionButton = styled.div`
   align-items: center;
   justify-content: space-between;
   border-radius: 0.375rem;
-  border: 1px solid #dc143c;
-  background-color: #fff;
-  color: #dc143c;
+  background-color: ${palette.neutralColor};
+  color: ${palette.primary};
 
   h4 {
     margin: 0;
@@ -30,9 +32,9 @@ export const SelectionList = styled.ul`
   left: 0;
   z-index: 2;
   border-radius: 0.375rem;
-  border: 1px solid #dc143c;
-  background-color: #fff;
-  color: #dc143c;
+  border: 1px solid ${palette.primary};
+  background-color: ${palette.neutralColor};
+  color: ${palette.primary};
 
   li {
     padding: 8px;
@@ -51,8 +53,8 @@ export const SelectionList = styled.ul`
     }
 
     &:hover {
-      background-color: #dc143c;
-      color: #fff;
+      background-color: ${palette.primary};
+      color: ${palette.neutralColor};
     }
   }
 `

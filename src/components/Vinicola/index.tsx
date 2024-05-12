@@ -1,49 +1,43 @@
 import PosterVinhos from '../PosterVinicola'
 
-import {
-  ContainerVinicola,
-  ContainerInfos,
-  Titulo,
-  ContainerPoster,
-  InfosVinicola
-} from './style'
+import * as S from './style'
 
 import vetorLoc from '../../assets/imagens/img_loc.png'
 import vetorSite from '../../assets/imagens/img_site.png'
 
 export type Props = {
-  estaInvertido?: boolean
+  isInverted?: boolean
   linkImg: string
   altImg: string
-  titulo: string
-  descVinicola: string
+  title: string
+  wineryDesc: string
   id: number
-  localizacao: string
+  location: string
   site: string
 }
 
-const Vinicola = ({
-  estaInvertido = false,
+const Winery = ({
+  isInverted = false,
   altImg,
   linkImg,
-  descVinicola,
-  titulo,
+  wineryDesc,
+  title,
   id,
-  localizacao,
+  location,
   site
 }: Props) => {
   return (
     <div className="container">
-      <ContainerVinicola estaInvertido={estaInvertido}>
-        <ContainerPoster>
+      <S.ContainerWinery isInverted={isInverted}>
+        <S.ContainerPoster>
           <PosterVinhos altImg={altImg} linkImg={linkImg} />
-        </ContainerPoster>
-        <ContainerInfos estaInvertido={estaInvertido}>
+        </S.ContainerPoster>
+        <S.ContainerInfos isInverted={isInverted}>
           <div className="text_num">
-            <Titulo>{titulo}</Titulo>
+            <S.Title>{title}</S.Title>
             <span>{'0' + id}</span>
           </div>
-          <InfosVinicola estaInvertido={estaInvertido}>
+          <S.WineryInfos isInverted={isInverted}>
             <div>
               <span>
                 <img
@@ -51,7 +45,7 @@ const Vinicola = ({
                   alt="Imagem que representa a Localização da vinicola"
                 />
               </span>
-              <p>{localizacao}</p>
+              <p>{location}</p>
             </div>
             <div>
               <span>
@@ -66,12 +60,12 @@ const Vinicola = ({
                 </a>
               </p>
             </div>
-          </InfosVinicola>
-          <p className="text_desc">{descVinicola}</p>
-        </ContainerInfos>
-      </ContainerVinicola>
+          </S.WineryInfos>
+          <p className="text_desc">{wineryDesc}</p>
+        </S.ContainerInfos>
+      </S.ContainerWinery>
     </div>
   )
 }
 
-export default Vinicola
+export default Winery
