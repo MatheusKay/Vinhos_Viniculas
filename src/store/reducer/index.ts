@@ -14,6 +14,7 @@ type States = {
   countAdd: number
   isOpenModal: boolean
   modal: Wines
+  menuMobile: boolean
 }
 
 const initialState: States = {
@@ -38,7 +39,8 @@ const initialState: States = {
     category: '',
     country: '',
     count: 0
-  }
+  },
+  menuMobile: false
 }
 
 const stateSlice = createSlice({
@@ -132,6 +134,9 @@ const stateSlice = createSlice({
     },
     cardModal: (state, action: PayloadAction<Wines>) => {
       state.modal = action.payload
+    },
+    openOrCloseMenu: (state) => {
+      state.menuMobile = !state.menuMobile
     }
   }
 })
@@ -146,7 +151,8 @@ export const {
   addCount,
   rmvCount,
   openModal,
-  cardModal
+  cardModal,
+  openOrCloseMenu
 } = stateSlice.actions
 
 export default stateSlice.reducer

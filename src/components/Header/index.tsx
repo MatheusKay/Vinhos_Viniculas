@@ -7,22 +7,21 @@ import vetorCesta from '../../assets/imagens/Vector_Cart.png'
 import * as S from './style'
 
 import SearchBar from '../BarraPesquisa'
-import BarraLinks from '../BarraLinks'
+import Links from '../Links'
 
 import { Wines, useGetVinhosQuery } from '../../services/api'
 
-import { CartOpen } from '../../store/reducer'
+import { CartOpen, openOrCloseMenu } from '../../store/reducer'
 import CartBuy from '../../pages/Carrinho'
 
 import { RootReducer } from '../../store'
+import Menu from '../MenuMobile'
 
 const Header = () => {
   const [visibleBar, setVisibleBar] = useState(false)
   const [inputClick, setInputClick] = useState(false)
   const [isTyping, setIsTyping] = useState('')
-  const [downDrinks, setDownDrinks] = useState(false)
 
-  const dropDownDrinks = useRef<HTMLLIElement>(null)
   const inputpesquisa = useRef<HTMLDivElement>(null)
 
   const { data: wines } = useGetVinhosQuery()
@@ -41,19 +40,8 @@ const Header = () => {
     setIsTyping(e.target.value)
   }
 
-  const handleOpenClose = () => {
-    setDownDrinks(!downDrinks)
-  }
-
   useEffect(() => {
     const dropDownClose = (e: MouseEvent) => {
-      if (
-        dropDownDrinks.current &&
-        !dropDownDrinks.current.contains(e.target as Node)
-      ) {
-        setDownDrinks(false)
-      }
-
       if (
         inputpesquisa.current &&
         !inputpesquisa.current.contains(e.target as Node)
@@ -123,52 +111,27 @@ const Header = () => {
                   <p>Meu carrinho</p>
                   <img src={vetorCesta} alt="Meu carrinho" />
                 </S.CartContainer>
+                <div>
+                  <S.BtnMenu onClick={() => dispatch(openOrCloseMenu())}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      className="bi bi-list"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+                      />
+                    </svg>
+                  </S.BtnMenu>
+                </div>
               </S.SearchContainer>
               <div>
-                <S.Links>
-                  <li>
-                    <S.LinkR to="/">Home</S.LinkR>
-                  </li>
-                  <li>
-                    <S.LinkR to="/vinicolas">Vinicolas</S.LinkR>
-                  </li>
-                  <S.LinkDown ref={dropDownDrinks}>
-                    <S.LinkR to="/produtos">Bebidas</S.LinkR>
-                    <button onClick={handleOpenClose}>
-                      {downDrinks ? (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="bi bi-caret-up-fill"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
-                        </svg>
-                      ) : (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="bi bi-caret-down-fill"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                        </svg>
-                      )}
-                    </button>
-                    {downDrinks && (
-                      <div>
-                        <BarraLinks />
-                      </div>
-                    )}
-                  </S.LinkDown>
-                  <li>
-                    <S.LinkR to="/fale-conosco">Fale conosco</S.LinkR>
-                  </li>
-                </S.Links>
+                <Links />
+                <Menu />
               </div>
             </S.ContainerInfos>
           </div>

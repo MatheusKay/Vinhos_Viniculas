@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import vetorDestaque from '../../assets/imagens/btn_destaques.png'
 
-import { palette } from '../../styles/estiloGlobal'
+import { media, palette } from '../../styles/estiloGlobal'
 
 export const SliderContain = styled(Slider)`
   .slick-list {
@@ -52,4 +52,9 @@ export const Title = styled.h2`
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.25em;
+
+  @media (max-width: ${media.mobile}) {
+    margin: 64px 0;
+    font-size: 24px;
+  }
 `

@@ -6,6 +6,7 @@ import dotsActive from '../../assets/imagens/dots_active.png'
 
 import next from '../../assets/imagens/next.png'
 import prev from '../../assets/imagens/prev.png'
+import { media } from '../../styles/estiloGlobal'
 
 export const SliderContainer = styled(Slider)`
   .slick-dots {
@@ -29,6 +30,10 @@ export const SliderContainer = styled(Slider)`
     li.slick-active button:before {
       content: url(${dotsActive});
     }
+
+    @media (max-width: ${media.mobile}) {
+      bottom: 16px;
+    }
   }
 
   .slick-next {
@@ -37,6 +42,10 @@ export const SliderContainer = styled(Slider)`
     &:before {
       content: url(${next});
     }
+
+    @media (max-width: ${media.mobile}) {
+      display: none;
+    }
   }
 
   .slick-prev {
@@ -44,6 +53,10 @@ export const SliderContainer = styled(Slider)`
 
     &:before {
       content: url(${prev});
+    }
+
+    @media (max-width: ${media.mobile}) {
+      display: none;
     }
   }
 `
@@ -55,6 +68,10 @@ export const Slide = styled.div`
   img {
     height: 100%;
     width: 100%;
+  }
+
+  @media (max-width: ${media.mobile}) {
+    height: 15em;
   }
 `
 
@@ -80,6 +97,18 @@ export const SliderItem = styled.div`
     margin-bottom: 104px;
     font-size: 16px;
   }
+
+  @media (max-width: ${media.mobile}) {
+    h2 {
+      margin-bottom: 24px;
+      font-size: 24px;
+    }
+
+    p {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+  }
 `
 
 export const SlideButton = styled.a`
@@ -96,6 +125,16 @@ export const SlideButton = styled.a`
     width: 34px;
     height: 20px;
   }
+
+  @media (max-width: ${media.mobile}) {
+    width: 40px;
+    height: 40px;
+
+    img {
+      width: 24px;
+      height: 12px;
+    }
+  }
 `
 
 export const LinkButton = styled.button`
@@ -108,4 +147,10 @@ export const LinkButton = styled.button`
   background-color: transparent;
   color: #fff;
   cursor: pointer;
+
+  @media (max-width: ${media.mobile}) {
+    width: 12em;
+    padding: 8px;
+    font-size: 14px;
+  }
 `

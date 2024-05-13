@@ -9,6 +9,11 @@ export const palette = {
   blackColor: '#000'
 }
 
+export const media = {
+  mobile: '767px',
+  tablet: '1023'
+}
+
 export const EstiloGlobal = createGlobalStyle`
   * {
     margin: 0;

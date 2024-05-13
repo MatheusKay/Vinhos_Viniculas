@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import backHeader from '../../assets/imagens/background_header.png'
 
-import { palette } from '../../styles/estiloGlobal'
+import { media, palette } from '../../styles/estiloGlobal'
 
 export const Cart = styled.section`
   width: 100%;
@@ -18,6 +18,12 @@ export const Cart = styled.section`
     width: 70%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: ${media.mobile}) {
+    .overlay {
+      width: 25%;
+    }
   }
 `
 
@@ -46,6 +52,14 @@ export const AsideCart = styled.aside`
   .cards_list {
     height: 60%;
     overflow-y: overlay;
+  }
+
+  @media (max-width: ${media.mobile}) {
+    width: 75%;
+
+    .text_subTitle {
+      font-size: 1.2em;
+    }
   }
 `
 

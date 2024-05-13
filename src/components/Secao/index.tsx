@@ -14,11 +14,17 @@ type Props = {
 }
 
 const Section = ({ title, wines }: Props) => {
+  const isMobile = window.matchMedia(
+    'only screen and (max-width: 768px)'
+  ).matches
+  const slidesToShow = isMobile ? 1 : 4
+
   const settings = {
     dots: true,
+    arrows: !isMobile,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: slidesToShow,
     slidesToScroll: 1
   }
 

@@ -18,7 +18,7 @@ const Home = () => {
         src={imgDivisor}
         alt="Imagem representando os campos de vinhos com a logo do site"
       />
-      {wines && <Section wines={wineHighlights(wines)} title="wineHighlights" />}
+      {wines && <Section wines={wineHighlights(wines)} title="Destaques" />}
     </>
   )
 }

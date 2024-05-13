@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import backfooter from '../../assets/imagens/background_footer.png'
+import { media, palette } from '../../styles/estiloGlobal'
 
 export const FooterBack = styled.div`
   padding: 48px;
@@ -16,17 +17,32 @@ export const FooterBack = styled.div`
     color: #fff;
     font-size: 14px;
   }
+
+  @media (max-width: ${media.mobile}) {
+    padding: 24px;
+  }
 `
 
 export const FooterContainer = styled.div`
   display: grid;
   grid-template-columns: 288px 192px auto;
   column-gap: 80px;
+
+  @media (max-width: ${media.mobile}) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 export const Title = styled.h4`
   margin-bottom: 24px;
   font-size: 24px;
+
+  @media (max-width: ${media.mobile}) {
+    margin-top: 1.3em;
+    text-align: center;
+    font-size: 1.3em;
+  }
 `
 
 export const FooterInfo = styled.section`
@@ -38,6 +54,17 @@ export const FooterInfo = styled.section`
 
   img {
     width: 200px;
+
+    @media (max-width: ${media.mobile}) {
+      width: 7em;
+    }
+  }
+
+  @media (max-width: ${media.mobile}) {
+    padding-bottom: 1.3em;
+    margin-bottom: 1.3em;
+    border-right: none;
+    border-bottom: 2px solid ${palette.neutralColor};
   }
 `
 
@@ -55,6 +82,10 @@ export const Links = styled.ul`
     a {
       padding: 8px 8px 8px 0;
       text-decoration: none;
+
+      @media (max-width: ${media.mobile}) {
+        text-decoration: underline;
+      }
     }
   }
 `
@@ -85,6 +116,10 @@ export const SocialMidias = styled.div`
           }
         }
       }
+    }
+
+    @media (max-width: ${media.mobile}) {
+      justify-content: center;
     }
   }
 `

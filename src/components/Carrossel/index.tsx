@@ -7,8 +7,13 @@ import vetorDestaque from '../../assets/imagens/btn_destaques.png'
 import * as S from './style'
 
 const Carrossel = () => {
+  const isMobile = window.matchMedia(
+    'only screen and (max-width: 768px)'
+  ).matches
+
   const settings = {
     dots: true,
+    arrows: !isMobile,
     infinite: true,
     speed: 100,
     slidesToShow: 1,
@@ -21,7 +26,7 @@ const Carrossel = () => {
       <S.Slide>
         <img src={slide1} alt="" />
         <S.SliderItem>
-          <h2>wineHighlights e Mais Vendidos</h2>
+          <h2>Destaques e Mais Vendidos</h2>
           <p>Veja abaixo os maiores vinhos deste mês</p>
           <S.SlideButton>
             <img
@@ -42,7 +47,7 @@ const Carrossel = () => {
       <S.Slide>
         <img src={slide3} alt="" />
         <S.SliderItem>
-          <h2>wineHighlights e Mais Vendidos</h2>
+          <h2>Destaques e Mais Vendidos</h2>
           <p>Veja abaixo os maiores vinhos deste mês</p>
           <S.LinkButton>Saiba Mais</S.LinkButton>
         </S.SliderItem>

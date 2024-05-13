@@ -35,7 +35,7 @@ const Footer = () => {
               <S.Title>Categorias</S.Title>
               <S.Links>
                 <li>
-                  <a href="">Produtos</a>
+                  <a href="">Home</a>
                 </li>
                 <li>
                   <a href="">Vinicolas</a>
