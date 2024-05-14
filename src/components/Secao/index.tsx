@@ -19,7 +19,7 @@ const Section = ({ title, wines }: Props) => {
   ).matches
 
   const isTablet = window.matchMedia(
-    'only screen and (min-width: 768px) and (max-width: 1024px)'
+    'only screen and (min-width: 768px) and (max-width: 1023px)'
   ).matches
 
   const viewScreen = () => {
