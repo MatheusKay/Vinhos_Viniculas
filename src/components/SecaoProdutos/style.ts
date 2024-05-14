@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { media } from '../../styles/estiloGlobal'
 
 export const Section = styled.section`
   color: black;
@@ -11,6 +12,11 @@ export const Title = styled.h2`
   text-transform: uppercase;
   font-size: 32px;
   letter-spacing: 0.15em;
+
+  @media (max-width: ${media.mobile}) {
+    margin: 2em 0;
+    font-size: 1.3em;
+  }
 `
 
 export const Links = styled.ul`
@@ -34,4 +40,9 @@ export const ListWines = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 16px;
   row-gap: 32px;
+
+  @media (max-width: ${media.mobile}) {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 4em;
+  }
 `

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { palette } from '../../styles/estiloGlobal'
+import { media, palette } from '../../styles/estiloGlobal'
 
 export const Contact = styled.div`
   width: 100%;
@@ -20,6 +20,17 @@ export const Contact = styled.div`
     margin-bottom: 96px;
     font-size: 24px;
     font-weight: 600;
+  }
+
+  @media (max-width: ${media.mobile}) {
+    h2 {
+      font-size: 24px;
+    }
+
+    p {
+      margin-bottom: 4em;
+      font-size: 16px;
+    }
   }
 `
 
@@ -55,6 +66,18 @@ export const Form = styled.form`
 
     div {
       width: 60%;
+    }
+  }
+
+  @media (max-width: ${media.mobile}) {
+    width: 100%;
+
+    .infos_pessoais {
+      flex-direction: column;
+
+      div {
+        width: 100%;
+      }
     }
   }
 `

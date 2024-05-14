@@ -20,6 +20,7 @@ export const FooterBack = styled.div`
 
   @media (max-width: ${media.mobile}) {
     padding: 24px;
+    margin-top: 64px;
   }
 `
 

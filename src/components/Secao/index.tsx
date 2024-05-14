@@ -15,24 +15,45 @@ type Props = {
 
 const Section = ({ title, wines }: Props) => {
   const isMobile = window.matchMedia(
-    'only screen and (max-width: 768px)'
+    'only screen and (max-width: 767px)'
   ).matches
-  const slidesToShow = isMobile ? 1 : 4
+
+  const isTablet = window.matchMedia(
+    'only screen and (min-width: 768px) and (max-width: 1024px)'
+  ).matches
+
+  const viewScreen = () => {
+    let screenShow = 0
+
+    if (isMobile) {
+      screenShow = 2
+    } else if (isTablet) {
+      screenShow = 3
+    } else {
+      screenShow = 4
+    }
+
+    return screenShow
+  }
+
+  const screen = viewScreen()
 
   const settings = {
     dots: true,
-    arrows: !isMobile,
+    arrows: !isMobile && !isTablet,
     infinite: true,
     speed: 500,
-    slidesToShow: slidesToShow,
+    slidesToShow: screen,
     slidesToScroll: 1
   }
+
+  const listWines = wines.slice(0, 5)
 
   return (
     <section className="container">
       <Title>{title}</Title>
       <SliderContain {...settings}>
-        {wines.map((wine) => (
+        {listWines.map((wine) => (
           <CardVinho
             key={wine.id}
             imgWine={wine.imgs.img_url}
@@ -41,7 +62,7 @@ const Section = ({ title, wines }: Props) => {
             price={formattedPrice(wine.price)}
             category={wine.category}
             volume={wine.price}
-            margin="16px"
+            margin={isMobile ? '8px' : '16px'}
             wine={wine}
           />
         ))}

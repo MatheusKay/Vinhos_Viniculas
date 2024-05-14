@@ -43,6 +43,27 @@ export const SliderContain = styled(Slider)`
       transform: rotate(90deg) scale(0.7);
     }
   }
+
+  @media (max-width: ${media.tablet}) {
+    .slick-dots {
+      bottom: -40px;
+    }
+
+    .slick-dots li {
+      display: inline-block;
+    }
+
+    .slick-dots li button:before {
+      content: '○';
+      font-size: 28px;
+    }
+
+    .slick-dots li.slick-active button:before {
+      color: ${palette.primary};
+      content: '◉';
+      font-size: 20px;
+    }
+  }
 `
 
 export const Title = styled.h2`

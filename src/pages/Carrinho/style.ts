@@ -126,6 +126,21 @@ export const CardCart = styled.li`
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
   }
+
+  @media (max-width: ${media.mobile}) {
+    padding: 16px;
+    flex-direction: column;
+
+    img {
+      height: auto;
+      width: 5em;
+      margin: 0 auto 2em;
+    }
+
+    h4 {
+      text-align: center;
+    }
+  }
 `
 
 export const CardTags = styled.div`
@@ -137,13 +152,21 @@ export const CardTags = styled.div`
     padding: 6px;
     text-align: center;
     font-size: 12px;
-    background-color: ${palette.grayColor};
+    background-color: ${palette.secondary};
+    color: ${palette.neutralColor};
+    border-radius: 8px;
   }
 
   img {
     width: 24px;
     height: 24px;
     border-radius: 50%;
+  }
+
+  @media (max-width: ${media.mobile}) {
+    margin-bottom: unset;
+    flex-direction: column;
+    row-gap: 1em;
   }
 `
 

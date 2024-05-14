@@ -31,6 +31,10 @@ const Header = () => {
   )
   const dispatch = useDispatch()
 
+  const isMobile = window.matchMedia(
+    'only screen and (max-width: 768px)'
+  ).matches
+
   const handleFocus = () => {
     setInputClick(true)
     setVisibleBar(true)
@@ -85,6 +89,25 @@ const Header = () => {
       <>
         <S.HeaderContainer>
           <div className="container">
+            {isMobile && (
+              <S.ContainerBtnMenu>
+                <S.BtnMenu onClick={() => dispatch(openOrCloseMenu())}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    className="bi bi-list"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+                    />
+                  </svg>
+                </S.BtnMenu>
+              </S.ContainerBtnMenu>
+            )}
             <S.Logo to="/">
               <img src={vetorLogo} alt="Logo Five leaf clover" />
             </S.Logo>
@@ -111,23 +134,6 @@ const Header = () => {
                   <p>Meu carrinho</p>
                   <img src={vetorCesta} alt="Meu carrinho" />
                 </S.CartContainer>
-                <div>
-                  <S.BtnMenu onClick={() => dispatch(openOrCloseMenu())}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="currentColor"
-                      className="bi bi-list"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
-                      />
-                    </svg>
-                  </S.BtnMenu>
-                </div>
               </S.SearchContainer>
               <div>
                 <Links />

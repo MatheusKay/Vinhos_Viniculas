@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { media, palette } from '../../styles/estiloGlobal'
 
 type Props = {
   margin: string
@@ -15,6 +16,14 @@ export const Card = styled.div<Props>`
     border: 2px solid #303030;
     border-bottom: none;
     border-radius: 8px 8px 0 0;
+
+    @media (max-width: ${media.mobile}) {
+      padding: 8px;
+    }
+
+    @media (max-width: ${media.tablet}) {
+      height: 32em;
+    }
   }
 `
 
@@ -24,6 +33,14 @@ export const CardImgWine = styled.div`
 
   > img {
     height: 250px;
+
+    @media (max-width: ${media.mobile}) {
+      height: 8em;
+    }
+
+    @media (max-width: ${media.tablet}) {
+      height: 14em;
+    }
   }
 `
 
@@ -36,6 +53,11 @@ export const CardImg = styled.div`
     width: 32px;
     height: 32px;
     border-radius: 0 6px 0 8px;
+
+    @media (max-width: ${media.mobile}) {
+      width: 24px;
+      height: 24px;
+    }
   }
 `
 
@@ -44,6 +66,15 @@ export const Title = styled.h3`
   margin-bottom: 36px;
   text-align: center;
   font-size: 18px;
+
+  @media (max-width: ${media.mobile}) {
+    min-height: 7em;
+    font-size: 16px;
+  }
+
+  @media (max-width: ${media.tablet}) {
+    min-height: 6em;
+  }
 `
 
 export const Tags = styled.div`
@@ -59,7 +90,18 @@ export const Tags = styled.div`
     font-size: 12px;
     font-weight: 600;
     text-align: center;
-    background-color: #ccc;
+    border-radius: 8px;
+    background-color: ${palette.secondary};
+    color: ${palette.neutralColor};
+
+    @media (max-width: ${media.mobile}) {
+      font-size: 10px;
+    }
+  }
+
+  @media (max-width: ${media.mobile}) {
+    flex-direction: column;
+    row-gap: 8px;
   }
 `
 
@@ -68,6 +110,10 @@ export const Price = styled.p`
   font-weight: bold;
   font-size: 18px;
   color: #518c16;
+
+  @media (max-width: ${media.mobile}) {
+    font-size: 16px;
+  }
 `
 
 export const AddButton = styled.button`
@@ -80,4 +126,9 @@ export const AddButton = styled.button`
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
+
+  @media (max-width: ${media.mobile}) {
+    padding: 8px;
+    font-size: 16px;
+  }
 `

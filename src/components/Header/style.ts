@@ -126,9 +126,14 @@ export const CartContainer = styled.div`
   }
 `
 
+export const ContainerBtnMenu = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export const BtnMenu = styled.button`
   padding: 0.3em;
-  margin-left: 0.7em;
   border: 2px solid #fff;
   border-radius: 8px;
   cursor: pointer;

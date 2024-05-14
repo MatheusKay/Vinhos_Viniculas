@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import backHeader from '../../assets/imagens/background_header.png'
 
-import { palette } from '../../styles/estiloGlobal'
+import { media, palette } from '../../styles/estiloGlobal'
 
 export const FiltrosContainer = styled.aside`
   padding: 24px 80px;
@@ -30,6 +30,10 @@ export const FiltrosContainer = styled.aside`
     letter-spacing: 0.15em;
     border-bottom: 2px solid ${palette.neutralColor};
   }
+
+  @media (max-width: ${media.mobile}) {
+    padding: 24px;
+  }
 `
 
 export const FiltrosSelects = styled.div`
@@ -41,5 +45,10 @@ export const FiltrosSelects = styled.div`
   h4 {
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
+  }
+
+  @media (max-width: ${media.mobile}) {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
   }
 `

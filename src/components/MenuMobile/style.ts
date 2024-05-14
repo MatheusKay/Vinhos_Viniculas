@@ -10,6 +10,7 @@ export const MenuMobile = styled.main`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 2;
 
   .overlay {
     width: 25%;

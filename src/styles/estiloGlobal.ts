@@ -11,7 +11,7 @@ export const palette = {
 
 export const media = {
   mobile: '767px',
-  tablet: '1023'
+  tablet: '1024px'
 }
 
 export const EstiloGlobal = createGlobalStyle`
@@ -44,6 +44,11 @@ export const EstiloGlobal = createGlobalStyle`
     max-width: 1184px;
     width: 100%;
     margin: 0 auto;
+
+    @media (max-width: ${media.mobile}) {
+      max-width: unset;
+      width: 90%;
+    }
   }
 
   .slick-prev {

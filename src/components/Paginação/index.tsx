@@ -1,4 +1,9 @@
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+
 import { Pagination, Button } from './style'
+
+import { RootReducer } from '../../store'
 
 type Props = {
   onClick: (page: number) => void
@@ -7,11 +12,17 @@ type Props = {
 }
 
 const Pages = ({ currentPage, onClick, totalPages }: Props) => {
-  const buttonsToShow = 9
+  const isMobile = window.matchMedia(
+    'only screen and (max-width: 768px)'
+  ).matches
+
+  const buttonsToShow = isMobile ? 5 : 9
   const fistButton = Math.max(1, currentPage - Math.floor(buttonsToShow / 2))
   const lastButton = Math.min(totalPages, fistButton + buttonsToShow - 1)
 
-  const buttons = []
+  const { filter, filterCountry } = useSelector((s: RootReducer) => s.state)
+
+  const buttons: JSX.Element[] = []
 
   const heandleClick = (page: number) => {
     onClick(page)
@@ -29,6 +40,10 @@ const Pages = ({ currentPage, onClick, totalPages }: Props) => {
       </Button>
     )
   }
+
+  useEffect(() => {
+    heandleClick(1)
+  }, [filter, filterCountry])
 
   return (
     <Pagination>

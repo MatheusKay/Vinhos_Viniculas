@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { palette } from '../../styles/estiloGlobal'
+import { media, palette } from '../../styles/estiloGlobal'
 
 export const SectionInfos = styled.section`
   margin-bottom: 15%;
@@ -18,6 +18,11 @@ export const SectionInfos = styled.section`
     font-size: 14px;
     line-height: 22px;
     text-align: center;
+
+    @media (max-width: ${media.mobile}) {
+      width: 100%;
+      margin: 64px 0 56px 0;
+    }
   }
 `
 
@@ -53,6 +58,28 @@ export const Poster = styled.section`
     img {
       width: 104px;
     }
+
+    @media (max-width: ${media.mobile}) {
+      img {
+        width: 4em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      p {
+        width: 85%;
+        text-align: center;
+        font-size: 0.9em;
+      }
+    }
+  }
+
+  @media (max-width: ${media.mobile}) {
+    > img {
+      height: 18em;
+    }
   }
 `
 
@@ -74,6 +101,10 @@ export const ContainerImg = styled.div`
   > div {
     position: relative;
     margin: 0 auto;
+  }
+
+  @media (max-width: ${media.mobile}) {
+    display: none;
   }
 `
 

@@ -101,6 +101,13 @@ const Vinicolas = () => (
           no Brasil possuem passeios incríveis, degustação com rótulos
           premiados, museus, colheitas noturnas e diversas outras atrações.
         </p>
+        <Divider>
+          <span className="ball_small"></span>
+          <span className="ball_medium"></span>
+          <span className="ball_big"></span>
+          <span className="ball_medium"></span>
+          <span className="ball_small"></span>
+        </Divider>
       </div>
       <ContainerImg>
         {mockVinicolas.map((vinicolaImg) => (
