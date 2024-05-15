@@ -32,7 +32,7 @@ const Header = () => {
   const dispatch = useDispatch()
 
   const isMobile = window.matchMedia(
-    'only screen and (max-width: 768px)'
+    'only screen and (max-width: 767px)'
   ).matches
 
   const handleFocus = () => {

@@ -22,7 +22,7 @@ export const Contact = styled.div`
     font-weight: 600;
   }
 
-  @media (max-width: ${media.mobile}) {
+  @media (max-width: ${media.tablet}) {
     h2 {
       font-size: 24px;
     }
@@ -80,6 +80,10 @@ export const Form = styled.form`
       }
     }
   }
+
+  @media (max-width: ${media.tablet}) {
+    width: 100%;
+  }
 `
 
 export const Button = styled.button`
@@ -92,4 +96,8 @@ export const Button = styled.button`
   font-size: 20px;
   font-weight: 600;
   cursor: pointer;
+
+  @media (max-width: ${media.tablet}) {
+    padding: 10px 4em;
+  }
 `

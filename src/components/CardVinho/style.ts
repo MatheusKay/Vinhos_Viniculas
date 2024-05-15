@@ -131,4 +131,8 @@ export const AddButton = styled.button`
     padding: 8px;
     font-size: 16px;
   }
+
+  @media (max-width: ${media.tablet}) {
+    padding: 16px;
+  }
 `

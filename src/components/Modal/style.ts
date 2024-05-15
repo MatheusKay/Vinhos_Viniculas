@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { media, palette } from '../../styles/estiloGlobal'
 
 export const ModalContainer = styled.main`
   width: 100%;
@@ -19,11 +20,16 @@ export const CardModal = styled.section`
   display: flex;
   column-gap: 16px;
   position: relative;
-  background-color: #fff;
+  background-color: ${palette.neutralColor};
   border-radius: 16px;
 
   .img_wine {
     height: 280px;
+  }
+
+  @media (max-width: ${media.tablet}) {
+    min-width: unset;
+    width: 80%;
   }
 `
 
@@ -35,20 +41,20 @@ export const CloseModal = styled.div`
   button {
     padding: 8px;
     display: flex;
-    border: 2px solid #ccc;
+    border: 2px solid ${palette.grayColor};
     border-radius: 8px;
     background-color: transparent;
     cursor: pointer;
 
     svg {
-      fill: #ccc;
+      fill: ${palette.grayColor};
     }
 
     &:hover {
-      background-color: #ccc;
+      background-color: ${palette.grayColor};
 
       svg {
-        fill: #000;
+        fill: ${palette.blackColor};
       }
     }
   }
@@ -87,7 +93,9 @@ export const Infos = styled.div`
         padding: 8px;
         text-align: center;
         font-size: 14px;
-        background-color: #d9d9d9;
+        background-color: ${palette.secondary};
+        color: ${palette.neutralColor};
+        border-radius: 8px;
       }
 
       img {
@@ -102,7 +110,7 @@ export const Infos = styled.div`
       font-weight: 600;
 
       svg {
-        fill: #000;
+        fill: ${palette.blackColor};
       }
     }
 `
@@ -117,8 +125,8 @@ export const Button = styled.div`
     padding: 8px;
     border: none;
     border-radius: 8px;
-    background-color: #dc143c;
-    color: #fff;
+    background-color: ${palette.primary};
+    color: ${palette.neutralColor};
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;

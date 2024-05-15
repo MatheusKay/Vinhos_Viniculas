@@ -21,6 +21,10 @@ export const HeaderContainer = styled.header`
       justify-content: space-between;
       column-gap: 0;
     }
+
+    @media (max-width: ${media.tablet}) {
+      column-gap: 1.5em;
+    }
   }
 
   a {
@@ -42,6 +46,10 @@ export const Logo = styled(Link)`
 
     @media (max-width: ${media.mobile}) {
       width: 8em;
+    }
+
+    @media (max-width: ${media.tablet}) {
+      width: 10em;
     }
   }
 
@@ -120,6 +128,12 @@ export const CartContainer = styled.div`
   @media (max-width: ${media.mobile}) {
     padding: 8px;
 
+    p {
+      display: none;
+    }
+  }
+
+  @media (max-width: ${media.tablet}) {
     p {
       display: none;
     }

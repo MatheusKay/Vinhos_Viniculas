@@ -17,6 +17,10 @@ export const Title = styled.h2`
     margin: 2em 0;
     font-size: 1.3em;
   }
+
+  @media (max-width: ${media.tablet}) {
+    font-size: 24px;
+  }
 `
 
 export const Links = styled.ul`
@@ -44,5 +48,13 @@ export const ListWines = styled.div`
   @media (max-width: ${media.mobile}) {
     grid-template-columns: 1fr 1fr;
     row-gap: 4em;
+  }
+
+  @media (max-width: ${media.tablet}) {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    > div {
+      width: 13.7em;
+    }
   }
 `

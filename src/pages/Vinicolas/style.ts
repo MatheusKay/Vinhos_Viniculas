@@ -74,6 +74,12 @@ export const Poster = styled.section`
         font-size: 0.9em;
       }
     }
+
+    @media (max-width: ${media.tablet}) {
+      img {
+        width: 4em;
+      }
+    }
   }
 
   @media (max-width: ${media.mobile}) {
@@ -96,6 +102,10 @@ export const ContainerImg = styled.div`
     margin: 0 auto;
     object-fit: cover;
     border-radius: 16px;
+
+    @media (max-width: ${media.tablet}) {
+      width: 100%;
+    }
   }
 
   > div {
@@ -105,6 +115,11 @@ export const ContainerImg = styled.div`
 
   @media (max-width: ${media.mobile}) {
     display: none;
+  }
+
+  @media (max-width: ${media.tablet}) {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 `
 

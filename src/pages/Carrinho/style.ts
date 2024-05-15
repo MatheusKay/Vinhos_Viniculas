@@ -25,6 +25,12 @@ export const Cart = styled.section`
       width: 25%;
     }
   }
+
+  @media (max-width: ${media.tablet}) {
+    .overlay {
+      width: 40%;
+    }
+  }
 `
 
 export const AsideCart = styled.aside`
@@ -60,6 +66,10 @@ export const AsideCart = styled.aside`
     .text_subTitle {
       font-size: 1.2em;
     }
+  }
+
+  @media (max-width: ${media.tablet}) {
+    width: 65%;
   }
 `
 

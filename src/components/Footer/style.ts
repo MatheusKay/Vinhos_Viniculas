@@ -29,7 +29,7 @@ export const FooterContainer = styled.div`
   grid-template-columns: 288px 192px auto;
   column-gap: 80px;
 
-  @media (max-width: ${media.mobile}) {
+  @media (max-width: ${media.tablet}) {
     display: flex;
     flex-direction: column;
   }
@@ -43,6 +43,10 @@ export const Title = styled.h4`
     margin-top: 1.3em;
     text-align: center;
     font-size: 1.3em;
+  }
+
+  @media (max-width: ${media.tablet}) {
+    text-align: center;
   }
 `
 
@@ -59,9 +63,13 @@ export const FooterInfo = styled.section`
     @media (max-width: ${media.mobile}) {
       width: 7em;
     }
+
+    @media (max-width: ${media.tablet}) {
+      width: 10em;
+    }
   }
 
-  @media (max-width: ${media.mobile}) {
+  @media (max-width: ${media.tablet}) {
     padding-bottom: 1.3em;
     margin-bottom: 1.3em;
     border-right: none;
@@ -84,7 +92,7 @@ export const Links = styled.ul`
       padding: 8px 8px 8px 0;
       text-decoration: none;
 
-      @media (max-width: ${media.mobile}) {
+      @media (max-width: ${media.tablet}) {
         text-decoration: underline;
       }
     }
@@ -119,7 +127,7 @@ export const SocialMidias = styled.div`
       }
     }
 
-    @media (max-width: ${media.mobile}) {
+    @media (max-width: ${media.tablet}) {
       justify-content: center;
     }
   }

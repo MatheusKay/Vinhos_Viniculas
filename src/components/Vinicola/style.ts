@@ -17,7 +17,7 @@ export const ContainerWinery = styled.div<Props>`
     border-radius: 16px;
   }
 
-  @media (max-width: ${media.mobile}) {
+  @media (max-width: ${media.tablet}) {
     margin: 20% 0;
     flex-direction: column-reverse;
     row-gap: 3em;
@@ -35,7 +35,7 @@ export const ContainerPoster = styled.div`
     transition: width 1.5s ease-in-out;
   }
 
-  @media (max-width: ${media.mobile}) {
+  @media (max-width: ${media.tablet}) {
     max-width: unset;
     width: 100%;
   }
@@ -70,12 +70,16 @@ export const ContainerInfos = styled.div<Props>`
       color: ${palette.neutralColor};
     }
 
-    @media (max-width: ${media.mobile}) {
+    @media (max-width: ${media.tablet}) {
       margin-bottom: 2em;
       flex-direction: row-reverse;
       justify-content: flex-end;
       column-gap: 16px;
     }
+  }
+
+  @media (max-width: ${media.tablet}) {
+    max-width: unset;
   }
 `
 
@@ -118,7 +122,7 @@ export const WineryInfos = styled.div<Props>`
       }
     }
 
-    @media (max-width: ${media.mobile}) {
+    @media (max-width: ${media.tablet}) {
       flex-direction: row;
     }
   }

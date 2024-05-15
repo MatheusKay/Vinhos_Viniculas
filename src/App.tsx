@@ -14,7 +14,7 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        {/* <Modal /> */}
+        <Modal />
         <EstiloGlobal />
         <Header />
         <Rotas />

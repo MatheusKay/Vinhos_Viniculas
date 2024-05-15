@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { palette } from '../../styles/estiloGlobal'
+import { media, palette } from '../../styles/estiloGlobal'
 
 export const CardSuggestions = styled.div`
   padding: 8px;
@@ -8,6 +8,14 @@ export const CardSuggestions = styled.div`
 
   h4 {
     width: 300px;
+
+    @media (max-width: ${media.tablet}) {
+      width: 60%;
+      font-size: 12px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
   }
 
   p {
@@ -57,9 +65,17 @@ export const Card = styled.section`
   .img_wine {
     max-height: 64px;
     height: 100%;
+
+    @media (max-width: ${media.tablet}) {
+      max-height: 54px;
+    }
   }
 
   span {
     width: 80px;
+  }
+
+  @media (max-width: ${media.tablet}) {
+    width: 95%;
   }
 `
