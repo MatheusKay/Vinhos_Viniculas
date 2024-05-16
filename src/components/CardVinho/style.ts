@@ -24,6 +24,11 @@ export const Card = styled.div<Props>`
     @media (max-width: ${media.tablet}) {
       height: 32em;
     }
+
+    @media (max-width: ${media.desktop}) {
+      max-height: unset;
+      height: 33em;
+    }
   }
 `
 
@@ -75,6 +80,11 @@ export const Title = styled.h3`
   @media (max-width: ${media.tablet}) {
     min-height: 6em;
   }
+
+  @media (max-width: ${media.desktop}) {
+    min-height: 7em;
+    margin-bottom: 0;
+  }
 `
 
 export const Tags = styled.div`
@@ -100,6 +110,11 @@ export const Tags = styled.div`
   }
 
   @media (max-width: ${media.mobile}) {
+    flex-direction: column;
+    row-gap: 8px;
+  }
+
+  @media (max-width: ${media.desktop}) {
     flex-direction: column;
     row-gap: 8px;
   }
@@ -132,7 +147,7 @@ export const AddButton = styled.button`
     font-size: 16px;
   }
 
-  @media (max-width: ${media.tablet}) {
+  @media (max-width: ${media.desktop}) {
     padding: 16px;
   }
 `

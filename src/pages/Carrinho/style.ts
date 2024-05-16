@@ -31,6 +31,12 @@ export const Cart = styled.section`
       width: 40%;
     }
   }
+
+  @media (max-width: ${media.desktop}) {
+    overlay {
+      width: 60%;
+    }
+  }
 `
 
 export const AsideCart = styled.aside`
@@ -70,6 +76,10 @@ export const AsideCart = styled.aside`
 
   @media (max-width: ${media.tablet}) {
     width: 65%;
+  }
+
+  @media (max-width: ${media.desktop}) {
+    width: 40%;
   }
 `
 

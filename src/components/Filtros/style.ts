@@ -34,6 +34,10 @@ export const FiltrosContainer = styled.aside`
   @media (max-width: ${media.mobile}) {
     padding: 24px;
   }
+
+  @media (max-width: ${media.desktop}) {
+    padding: 32px;
+  }
 `
 
 export const FiltrosSelects = styled.div`

@@ -25,6 +25,10 @@ export const HeaderContainer = styled.header`
     @media (max-width: ${media.tablet}) {
       column-gap: 1.5em;
     }
+
+    @media (max-width: ${media.desktop}) {
+      column-gap: 2em;
+    }
   }
 
   a {
@@ -50,6 +54,10 @@ export const Logo = styled(Link)`
 
     @media (max-width: ${media.tablet}) {
       width: 10em;
+    }
+
+    @media (max-width: ${media.desktop}) {
+      width: 11em;
     }
   }
 
@@ -136,6 +144,14 @@ export const CartContainer = styled.div`
   @media (max-width: ${media.tablet}) {
     p {
       display: none;
+    }
+  }
+
+  @media (max-width: ${media.desktop}) {
+    align-items: center;
+
+    p {
+      font-size: 14px;
     }
   }
 `

@@ -57,4 +57,10 @@ export const ListWines = styled.div`
       width: 13.7em;
     }
   }
+
+  @media (max-width: ${media.desktop}) {
+    > div {
+      width: 13em;
+    }
+  }
 `

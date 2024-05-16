@@ -22,6 +22,10 @@ export const FooterBack = styled.div`
     padding: 24px;
     margin-top: 64px;
   }
+
+  @media (max-width: ${media.desktop}) {
+    padding: 32px;
+  }
 `
 
 export const FooterContainer = styled.div`
@@ -32,6 +36,10 @@ export const FooterContainer = styled.div`
   @media (max-width: ${media.tablet}) {
     display: flex;
     flex-direction: column;
+  }
+
+  @media (max-width: ${media.desktop}) {
+    column-gap: 56px;
   }
 `
 
@@ -66,6 +74,10 @@ export const FooterInfo = styled.section`
 
     @media (max-width: ${media.tablet}) {
       width: 10em;
+    }
+
+    @media (max-width: ${media.desktop}) {
+      width: 11em;
     }
   }
 

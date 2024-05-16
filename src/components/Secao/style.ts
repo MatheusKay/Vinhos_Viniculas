@@ -42,6 +42,10 @@ export const SliderContain = styled(Slider)`
       opacity: 1;
       transform: rotate(90deg) scale(0.7);
     }
+
+    @media (max-width: ${media.desktop}) {
+      left: -40px;
+    }
   }
 
   @media (max-width: ${media.tablet}) {

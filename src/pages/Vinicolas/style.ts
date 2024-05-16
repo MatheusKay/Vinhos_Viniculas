@@ -80,6 +80,12 @@ export const Poster = styled.section`
         width: 4em;
       }
     }
+
+    @media (max-width: ${media.desktop}) {
+      img {
+        width: 5em;
+      }
+    }
   }
 
   @media (max-width: ${media.mobile}) {

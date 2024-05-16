@@ -11,7 +11,9 @@ export const palette = {
 
 export const media = {
   mobile: '767px',
-  tablet: '1023px'
+  tablet: '1023px',
+  desktop: '1279px',
+  desktopFull: '1920px'
 }
 
 export const EstiloGlobal = createGlobalStyle`
@@ -45,9 +47,14 @@ export const EstiloGlobal = createGlobalStyle`
     width: 100%;
     margin: 0 auto;
 
-    @media (max-width: ${media.tablet}) {
+    @media (max-width: ${media.desktop}) {
       max-width: unset;
       width: 90%;
+    }
+
+    @media (min-width: ${media.desktopFull}) {
+      max-width: unset;
+      width: 75%;
     }
   }
 
