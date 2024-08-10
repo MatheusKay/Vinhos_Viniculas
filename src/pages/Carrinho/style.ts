@@ -26,13 +26,13 @@ export const Cart = styled.section`
     }
   }
 
-  @media (max-width: ${media.tablet}) {
+  @media (min-width: ${media.mobile}) and (max-width: ${media.tablet}) {
     .overlay {
       width: 40%;
     }
   }
 
-  @media (max-width: ${media.desktop}) {
+  @media (min-width: ${media.tablet}) and (max-width: ${media.desktop}) {
     overlay {
       width: 60%;
     }
@@ -74,11 +74,11 @@ export const AsideCart = styled.aside`
     }
   }
 
-  @media (max-width: ${media.tablet}) {
+  @media (min-width: ${media.mobile}) and (max-width: ${media.desktop}) {
     width: 65%;
   }
 
-  @media (max-width: ${media.desktop}) {
+  @media (min-width: ${media.tablet}) and (max-width: ${media.desktop}) {
     width: 40%;
   }
 `

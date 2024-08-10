@@ -52,11 +52,11 @@ export const Logo = styled(Link)`
       width: 8em;
     }
 
-    @media (max-width: ${media.tablet}) {
+    @media (min-width: ${media.tablet}) and (max-width: ${media.desktop}) {
       width: 10em;
     }
 
-    @media (max-width: ${media.desktop}) {
+    @media (min-width: ${media.desktop}) and (max-width: ${media.desktopFull}) {
       width: 11em;
     }
   }

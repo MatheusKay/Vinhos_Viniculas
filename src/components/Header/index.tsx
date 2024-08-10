@@ -16,6 +16,7 @@ import CartBuy from '../../pages/Carrinho'
 
 import { RootReducer } from '../../store'
 import Menu from '../MenuMobile'
+import SkeletonHeader from './Skeleton'
 
 const Header = () => {
   const [visibleBar, setVisibleBar] = useState(false)
@@ -147,7 +148,7 @@ const Header = () => {
     )
   }
 
-  return <div>Carregando..</div>
+  return <SkeletonHeader />
 }
 
 export default Header

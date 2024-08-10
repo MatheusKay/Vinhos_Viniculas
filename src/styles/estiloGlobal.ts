@@ -11,8 +11,8 @@ export const palette = {
 
 export const media = {
   mobile: '767px',
-  tablet: '1023px',
-  desktop: '1279px',
+  tablet: '768px',
+  desktop: '1024px',
   desktopFull: '1920px'
 }
 
